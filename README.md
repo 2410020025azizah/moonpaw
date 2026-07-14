@@ -116,4 +116,6 @@ Universitas Islam Kalimantan Muhammad Arsyad Al Banjari
 
 https://moonpaw.fwh.is
 
+---
+
 ⭐ **Final Project – Pemrograman Web 2**
