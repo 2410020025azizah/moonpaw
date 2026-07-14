@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donasi – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+</head>
+<body>
+<div class="user-layout">
+  <div id="sidebarContainer"></div>
+  <div class="main-content">
+    <header class="top-header">
+      <div class="top-header-left">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div>
+          <div class="page-title">Donasi</div>
+          <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span class="sep">/</span><span class="current">Donasi</span></div>
+        </div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <a href="notifications.html" class="header-icon-btn"><i class="fas fa-bell"></i><span class="header-notif-badge">4</span></a>
+        <a href="profile.html" class="header-avatar">A</a>
+      </div>
+    </header>
+    <main class="page-content">
+      <!-- Hero Section -->
+      <section class="card" style="padding: 40px; text-align:center; background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.95)), url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=800') center/cover; color:white; border:none; margin-bottom: 30px; position:relative; overflow:hidden">
+        <div style="position:relative; z-index:2">
+          <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; font-family: var(--font-heading)">💖 Bantu Mereka Mendapatkan Hidup Lebih Baik</h1>
+          <p style="font-size: 1rem; max-width: 600px; margin: 0 auto 20px; color: #cbd5e1; line-height:1.6">Setiap donasi Anda sangat berarti untuk menyediakan makanan, perawatan medis, dan tempat tinggal yang layak bagi hewan-hewan di shelter.</p>
+        </div>
+      </section>
+
+      <!-- Main Layout -->
+      <div class="grid-sidebar" style="align-items:start">
+        <!-- Left: Form -->
+        <div>
+          <!-- Progress Card -->
+          <div class="card" style="padding: 24px; margin-bottom: 24px; background:linear-gradient(135deg,var(--midnight),#1a2744);color:white;border:none">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+              <h3 style="font-size:1.1rem;font-weight:700;margin:0">Shelter A Rescue Fund</h3>
+              <span style="background:rgba(250,204,21,0.2);color:var(--moon-gold);padding:4px 10px;border-radius:20px;font-size:0.75rem;font-weight:700">70%</span>
+            </div>
+            <div style="height:10px;background:rgba(255,255,255,0.1);border-radius:5px;overflow:hidden;margin-bottom:16px">
+              <div style="height:100%;width:70%;background:linear-gradient(90deg,var(--moon-gold),#F97316);border-radius:5px;animation:pulse 2s infinite"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:rgba(255,255,255,0.7)">
+              <div>Collected: <strong style="color:white">Rp 14.000.000</strong></div>
+              <div>Target: <strong style="color:white">Rp 20.000.000</strong></div>
+            </div>
+          </div>
+
+          <div class="card" style="padding: 24px;">
+            <h2 style="font-size:1.3rem; font-weight:800; margin-bottom: 20px; color:var(--text-primary)">Formulir Donasi</h2>
+          <form id="donation-form" onsubmit="handleDonationSubmit(event)">
+            <div class="form-group" style="margin-bottom:20px">
+              <label class="form-label" style="font-weight:600; margin-bottom:8px; display:block">Pilih Nominal Donasi</label>
+              <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:10px; margin-bottom:12px">
+                <button type="button" class="btn-outline-gold" style="padding:10px; font-size:0.875rem" onclick="selectAmount(50000)">Rp 50K</button>
+                <button type="button" class="btn-outline-gold" style="padding:10px; font-size:0.875rem" onclick="selectAmount(100000)">Rp 100K</button>
+                <button type="button" class="btn-outline-gold" style="padding:10px; font-size:0.875rem" onclick="selectAmount(250000)">Rp 250K</button>
+              </div>
+              <input type="number" id="customAmount" class="form-control" placeholder="Atau masukkan nominal kustom (Rp)" style="width:100%" required>
+            </div>
+            
+            <div class="form-group" style="margin-bottom:20px">
+              <label class="form-label" style="font-weight:600; margin-bottom:8px; display:block">Metode Pembayaran</label>
+              <select class="form-control" style="width:100%" required>
+                <option value="">Pilih Metode Pembayaran</option>
+                <option value="bca">Bank BCA</option>
+                <option value="mandiri">Bank Mandiri</option>
+                <option value="qris">QRIS / Gopay / OVO / Dana</option>
+              </select>
+            </div>
+            
+            <div class="form-group" style="margin-bottom:20px">
+              <label class="form-label" style="font-weight:600; margin-bottom:8px; display:block">Nama Lengkap</label>
+              <input type="text" class="form-control" placeholder="Nama Anda" value="Amanda Putri" style="width:100%" required>
+            </div>
+            
+            <div class="form-group" style="margin-bottom:24px">
+              <label class="form-label" style="font-weight:600; margin-bottom:8px; display:block">Pesan untuk Shelter (Opsional)</label>
+              <textarea class="form-control" rows="3" placeholder="Tuliskan pesan atau dukungan terbaik Anda..." style="width:100%"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-gold w-100" style="justify-content:center; padding:12px; font-size:1rem">
+              <i class="fas fa-heart"></i> Lanjutkan Pembayaran
+            </button>
+          </form>
+          </div>
+        </div>
+
+        <!-- Right: Why Donate -->
+        <div>
+          <div class="card" style="padding: 24px; margin-bottom:24px">
+            <h2 style="font-size:1.3rem; font-weight:800; margin-bottom:20px; color:var(--text-primary)">Mengapa Berdonasi?</h2>
+            
+            <div style="display:flex; gap: 16px; margin-bottom: 20px;">
+              <div style="background:rgba(250,204,21,0.1); color:var(--moon-gold); width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.25rem; flex-shrink:0;">
+                <i class="fas fa-bone"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:4px; color:var(--text-primary)">Penyediaan Makanan</h3>
+                <p style="color:var(--text-secondary); font-size:0.875rem; line-height:1.5">Memastikan setiap hewan mendapatkan asupan nutrisi yang sehat dan cukup setiap harinya.</p>
+              </div>
+            </div>
+            
+            <div style="display:flex; gap: 16px; margin-bottom: 20px;">
+              <div style="background:rgba(250,204,21,0.1); color:var(--moon-gold); width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.25rem; flex-shrink:0;">
+                <i class="fas fa-stethoscope"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:4px; color:var(--text-primary)">Perawatan Medis & Vaksin</h3>
+                <p style="color:var(--text-secondary); font-size:0.875rem; line-height:1.5">Membantu biaya pengobatan hewan sakit, sterilisasi, serta program vaksinasi rutin agar terhindar dari virus.</p>
+              </div>
+            </div>
+            
+            <div style="display:flex; gap: 16px;">
+              <div style="background:rgba(250,204,21,0.1); color:var(--moon-gold); width:46px; height:46px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.25rem; flex-shrink:0;">
+                <i class="fas fa-home"></i>
+              </div>
+              <div>
+                <h3 style="font-size:1rem; font-weight:700; margin-bottom:4px; color:var(--text-primary)">Pemeliharaan Shelter</h3>
+                <p style="color:var(--text-secondary); font-size:0.875rem; line-height:1.5">Mendukung renovasi kandang dan perawatan area shelter agar tetap nyaman dan aman ditempati.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/user.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('sidebarContainer').innerHTML = buildUserSidebar('donasi');
+});
+
+function selectAmount(val) {
+  document.getElementById('customAmount').value = val;
+}
+
+function handleDonationSubmit(e) {
+  e.preventDefault();
+  const amt = document.getElementById('customAmount').value;
+  showUserToast('💖', `Terima kasih! Instruksi pembayaran donasi sebesar Rp ${Number(amt).toLocaleString('id-ID')} telah dikirim.`);
+  document.getElementById('donation-form').reset();
+}
+</script>
+</body>
+</html>

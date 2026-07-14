@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Riwayat Adopsi – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+</head>
+<body>
+<div class="user-layout">
+  <div id="sidebarContainer"></div>
+  <div class="main-content">
+    <header class="top-header">
+      <div class="top-header-left">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div><div class="page-title">Riwayat Adopsi</div>
+        <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span class="sep">/</span><span class="current">Riwayat Adopsi</span></div></div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <a href="notifications.html" class="header-icon-btn"><i class="fas fa-bell"></i><span class="header-notif-badge">4</span></a>
+        <a href="profile.html" class="header-avatar">A</a>
+      </div>
+    </header>
+    <main class="page-content">
+      <div class="card">
+        <div class="card-header"><div class="card-title">📜 Riwayat Adopsi Sukses</div></div>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Hewan</th>
+                <th>Shelter</th>
+                <th>Tanggal Selesai</th>
+                <th>Sertifikat</th>
+                <th>Review & Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <div style="width:40px;height:40px;border-radius:8px;overflow:hidden;flex-shrink:0">
+                      <img src="https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?auto=format&fit=crop&q=80&w=100" style="width:100%;height:100%;object-fit:cover;" alt="Luna" />
+                    </div>
+                    <div><div style="font-weight:700;font-size:0.875rem">Luna</div><div style="font-size:0.75rem;color:var(--text-muted)">Persian Mix</div></div>
+                  </div>
+                </td>
+                <td>Rumah Kucing Indonesia</td>
+                <td style="font-size:0.875rem">22 Juni 2026</td>
+                <td>
+                  <button class="btn-gold" style="padding:6px 12px;font-size:0.75rem;border-radius:6px" onclick="downloadCertificate('Luna', 'Amanda Putri')">
+                    <i class="fas fa-file-pdf"></i> Unduh PDF
+                  </button>
+                </td>
+                <td>
+                  <span style="color:var(--moon-gold)">★★★★★</span>
+                  <div style="font-size:0.72rem;color:var(--text-muted);margin-top:2px">Ulasan diberikan</div>
+                  <span style="display:inline-block;background:rgba(34,197,94,0.12);color:#22C55E;font-size:0.68rem;padding:2px 6px;border-radius:4px;font-weight:700;margin-top:6px"><i class="fas fa-plus"></i> 100 MoonPoints</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="assets/js/user.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('sidebarContainer').innerHTML=buildUserSidebar('history');
+});
+function downloadCertificate(petName, adopterName) {
+  showUserToast('📄', `Menyiapkan Sertifikat Digital ${petName}...`);
+
+  if (typeof html2pdf === 'undefined') {
+    const script = document.createElement('script');
+    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+    script.onload = () => generatePDF(petName, adopterName);
+    document.head.appendChild(script);
+  } else {
+    generatePDF(petName, adopterName);
+  }
+}
+
+function generatePDF(petName, adopterName) {
+  const cert = document.createElement('div');
+  cert.style.width = '900px';
+  cert.style.padding = '40px';
+  cert.style.background = '#ffffff';
+  cert.style.fontFamily = "'Poppins', 'Inter', sans-serif";
+  cert.style.color = '#1e293b';
+  cert.style.border = '20px solid #facc15';
+  cert.style.boxSizing = 'border-box';
+  cert.style.position = 'absolute';
+  cert.style.left = '-9999px'; // off-screen
+  cert.style.top = '0';
+  cert.style.textAlign = 'center';
+
+  const certNo = `MP-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+
+  cert.innerHTML = `
+    <div style="position:absolute; top:10px; left:10px; right:10px; bottom:10px; border:2px dashed #facc15; pointer-events:none;"></div>
+    
+    <div style="margin-top:20px; margin-bottom:15px; display:flex; justify-content:center; align-items:center; gap:10px">
+      <span style="font-size:2rem">🌙</span>
+      <span style="font-size:1.8rem; font-weight:800; letter-spacing:1px; color:#0f172a">Moon<span style="color:#eab308">Paw</span></span>
+    </div>
+    
+    <h1 style="font-size:2.2rem; font-weight:900; color:#0f172a; text-transform:uppercase; margin:10px 0; letter-spacing:2px">Sertifikat Adopsi Resmi</h1>
+    <p style="font-size:0.9rem; color:#64748b; letter-spacing:3px; text-transform:uppercase; margin-bottom:30px">Nomor Sertifikat: ${certNo}</p>
+    
+    <p style="font-size:1.1rem; font-style:italic; color:#475569; margin-bottom:20px">Dengan ini dinyatakan bahwa</p>
+    
+    <h2 style="font-size:2.5rem; font-weight:700; color:#eab308; margin:10px 0; border-bottom:2px solid #e2e8f0; display:inline-block; padding-bottom:8px; min-width:350px">${adopterName}</h2>
+    
+    <p style="font-size:1.1rem; font-style:italic; color:#475569; margin-top:20px; margin-bottom:20px">Telah resmi mengadopsi dan berkomitmen memberikan kasih sayang kepada</p>
+    
+    <h3 style="font-size:2rem; font-weight:800; color:#0f172a; margin:5px 0">${petName}</h3>
+    <p style="font-size:1rem; font-weight:500; color:#64748b; text-transform:uppercase; letter-spacing:1px; margin-bottom:30px">Spesies/Ras: Kucing (Persian Mix)</p>
+    
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:40px; padding:0 50px">
+      <div style="text-align:center">
+        <div style="font-size:0.85rem; color:#64748b; margin-bottom:40px">Tanggal Adopsi</div>
+        <div style="font-weight:700; color:#0f172a; font-size:1rem; border-top:1px solid #cbd5e1; padding-top:8px; min-width:150px">22 Juni 2026</div>
+      </div>
+      <div style="text-align:center">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent('MoonPaw Certificate: ' + certNo + ' | Adopter: ' + adopterName + ' | Pet: ' + petName)}" alt="QR Code" style="width:90px;height:90px;border:3px solid #facc15;border-radius:6px;display:block;margin:0 auto 6px">
+        <span style="font-size:0.65rem; color:#64748b; display:block; letter-spacing:1px">${certNo}</span>
+        <span style="font-size:0.7rem; color:#22c55e; font-weight:700; border:1.5px solid #22c55e; border-radius:4px; padding:2px 8px; text-transform:uppercase; letter-spacing:1px; display:block; margin-top:4px">✓ Terverifikasi</span>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:0.85rem; color:#64748b; margin-bottom:40px">Director of MoonPaw</div>
+        <div style="font-weight:700; font-style:italic; color:#0f172a; font-size:1rem; border-top:1px solid #cbd5e1; padding-top:8px; min-width:150px">Aditya Wijaya</div>
+      </div>
+    </div>
+    
+    <div style="margin-top:30px; font-size:0.75rem; color:#94a3b8">Terima kasih telah memberikan rumah baru bagi hewan peliharaan kami. 🐾 moonpawpet@gmail.com</div>
+  `;
+
+  document.body.appendChild(cert);
+
+  const opt = {
+    margin:       0.2,
+    filename:     `Sertifikat-Adopsi-${petName}.pdf`,
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2, useCORS: true },
+    jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+  };
+
+  html2pdf().from(cert).set(opt).save().then(() => {
+    cert.remove();
+    showUserToast('✅', `Sertifikat ${petName} berhasil diunduh!`);
+  }).catch(err => {
+    cert.remove();
+    showUserToast('❌', 'Gagal mengunduh sertifikat.');
+    console.error(err);
+  });
+}
+</script>
+</body>
+</html>

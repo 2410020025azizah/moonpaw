@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="MoonPaw – Platform adopsi hewan digital terpercaya di Indonesia. Temukan sahabat berbulumu dan mulai perjalanan adopsi yang mudah, aman, dan transparan." />
+  <meta name="keywords"
+    content="adopsi hewan, kucing adopsi, anjing adopsi, shelter hewan, MoonPaw, adopsi online Indonesia" />
+  <meta name="author" content="MoonPaw Team" />
+  <meta property="og:title" content="MoonPaw – Smart Pet Adoption Platform" />
+  <meta property="og:description" content="Temukan sahabat berbulu yang siap menjadi bagian dari keluargamu." />
+  <meta property="og:type" content="website" />
+
+  <title>MoonPaw – Smart Pet Adoption Platform | Find Your Perfect Companion</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- LOADER                                                     -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div id="loader">
+    <div
+      style="font-size: 4.5rem; animation: animalsFloat 3s ease-in-out infinite; text-shadow: 0 0 25px rgba(250, 204, 21, 0.4)">
+      🌙</div>
+    <div
+      style="font-size: 2.5rem; font-weight: 800; font-family: 'Poppins', sans-serif; color: white; letter-spacing: 1px; margin-top: 10px;">
+      Moon<span style="color:var(--moon-gold)">Paw</span></div>
+    <div style="color: #cbd5e1; font-size: 1.05rem; font-style: italic; font-weight: 300; margin-top: 5px;">Find Your
+      Perfect Companion</div>
+    <div
+      style="margin-top: 30px; font-size: 0.85rem; color: #64748b; letter-spacing: 3px; text-transform: uppercase; display: flex; align-items: center; gap: 8px;">
+      <span>Loading</span><span style="display:inline-block; animation: bounce 1.4s infinite both">.</span><span
+        style="display:inline-block; animation: bounce 1.4s infinite both; animation-delay: .2s">.</span><span
+        style="display:inline-block; animation: bounce 1.4s infinite both; animation-delay: .4s">.</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- MOBILE NAV                                                 -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="#hero">Beranda</a>
+    <a href="#about">Tentang</a>
+    <a href="#featured-pets">Hewan</a>
+    <a href="#how-it-works">Cara Adopsi</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Kontak</a>
+    <div style="display:flex;gap:12px;margin-top:16px;">
+      <a href="login.html" class="btn-outline-gold" style="text-decoration:none">Masuk</a>
+      <a href="register.html" class="btn-gold" style="text-decoration:none">Daftar</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- NAVBAR                                                     -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner">
+      <!-- Logo -->
+      <a href="#hero" class="navbar-logo" aria-label="MoonPaw Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Crescent Moon -->
+            <path
+              d="M20 6C14.477 6 10 10.477 10 16C10 21.523 14.477 26 20 26C16.686 26 14 23.314 14 20C14 16.686 16.686 14 20 14C23.314 14 26 16.686 26 20C26 14.477 21.523 10 16 10"
+              fill="#FACC15" />
+            <circle cx="20" cy="7" r="2" fill="#FACC15" opacity="0.6" />
+            <!-- Paw -->
+            <ellipse cx="16" cy="19" rx="3" ry="3.5" fill="#FACC15" opacity="0.9" />
+            <ellipse cx="12.5" cy="17" rx="1.5" ry="2" fill="#FACC15" opacity="0.7" />
+            <ellipse cx="19.5" cy="17" rx="1.5" ry="2" fill="#FACC15" opacity="0.7" />
+            <ellipse cx="11" cy="20.5" rx="1.3" ry="1.8" fill="#FACC15" opacity="0.7" />
+            <ellipse cx="21" cy="20.5" rx="1.3" ry="1.8" fill="#FACC15" opacity="0.7" />
+          </svg>
+        </div>
+        <span class="logo-text">Moon<span>Paw</span></span>
+      </a>
+
+      <!-- Nav Links -->
+      <ul class="nav-links" role="list">
+        <li><a href="#hero" class="active" id="nav-home">Beranda</a></li>
+        <li><a href="#about" id="nav-about">Tentang</a></li>
+        <li><a href="#featured-pets" id="nav-pets">Hewan</a></li>
+        <li><a href="#how-it-works" id="nav-how">Cara Adopsi</a></li>
+        <li><a href="#blog" id="nav-blog">Blog</a></li>
+        <li><a href="#contact" id="nav-contact">Kontak</a></li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <button class="dark-toggle" id="darkToggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a href="login.html" class="btn-nav-login" id="nav-login-btn">Masuk</a>
+        <a href="register.html" class="btn-nav-register" id="nav-register-btn">Daftar Gratis</a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- HERO SECTION                                               -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero section">
+    <!-- Background orbs -->
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+
+    <!-- Stars -->
+    <div class="stars" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <div class="hero-content">
+      <!-- Left: Text -->
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          🐾 Platform Adopsi Hewan Terpercaya
+        </div>
+
+        <h1 class="hero-title">
+          <span id="heroTagline">Find Your Perfect Companion.</span><br />
+          <span class="line-gold">Mulai Petualangan<br />Bersama Sahabat Berbulu</span>
+        </h1>
+
+        <p class="hero-desc">
+          Temukan sahabat berbulu yang siap menjadi bagian dari keluargamu.
+          MoonPaw membantu proses adopsi hewan menjadi lebih mudah, aman,
+          dan transparan — satu langkah menuju rumah penuh kasih sayang.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="pets.html" class="btn-gold" id="hero-explore-btn">
+            <i class="fas fa-paw"></i> Explore Pets
+          </a>
+          <a href="smart-match.html" class="btn-outline-white" id="hero-adopt-btn" style="text-decoration:none">
+            <i class="fas fa-magic"></i> Find Your Match
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <span class="hero-stat-number" data-target="250">0</span><span
+              style="font-size:1.5rem;font-weight:800;color:var(--moon-gold)">+</span>
+            <span class="hero-stat-label">Available Pets</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-number" data-target="35">0</span><span
+              style="font-size:1.5rem;font-weight:800;color:var(--moon-gold)">+</span>
+            <span class="hero-stat-label">Shelter</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-number" data-target="1500">0</span><span
+              style="font-size:1.5rem;font-weight:800;color:var(--moon-gold)">+</span>
+            <span class="hero-stat-label">Happy Adoption</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-number" data-target="5000">0</span><span
+              style="font-size:1.5rem;font-weight:800;color:var(--moon-gold)">+</span>
+            <span class="hero-stat-label">Users</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Illustration -->
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-illustration">
+          <!-- Moon -->
+          <div class="hero-moon"></div>
+
+          <!-- Paw prints scattered -->
+          <span class="hero-paw" style="top:10%;left:8%;animation-delay:0s">🐾</span>
+          <span class="hero-paw" style="top:20%;right:5%;animation-delay:1s">🐾</span>
+          <span class="hero-paw" style="top:5%;left:55%;animation-delay:2s;font-size:0.8rem">🐾</span>
+          <span class="hero-paw" style="top:35%;left:5%;animation-delay:0.5s;font-size:0.9rem">🐾</span>
+          <span class="hero-paw" style="bottom:30%;right:8%;animation-delay:1.5s;font-size:0.7rem">🐾</span>
+          <span class="hero-paw" style="top:60%;left:12%;animation-delay:2.5s;font-size:1rem">🐾</span>
+
+          <!-- Animals -->
+          <div class="hero-animals">
+            <div class="hero-dog" role="img" aria-label="Dog">🐕</div>
+            <div class="hero-cat" role="img" aria-label="Cat">🐈</div>
+          </div>
+
+          <div class="hero-ground"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-mouse"></div>
+      <span>Scroll Down</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- CORE VALUES STRIP                                          -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <div id="core-values" class="values-strip" aria-label="Core values">
+    <div class="values-track">
+      <div class="value-item"><span>❤️</span> Compassion <span class="value-dot"></span></div>
+      <div class="value-item"><span>🤝</span> Trust <span class="value-dot"></span></div>
+      <div class="value-item"><span>🌍</span> Responsibility <span class="value-dot"></span></div>
+      <div class="value-item"><span>🚀</span> Innovation <span class="value-dot"></span></div>
+      <div class="value-item"><span>🌱</span> Sustainability <span class="value-dot"></span></div>
+      <div class="value-item"><span>🐾</span> Adopt Don't Shop <span class="value-dot"></span></div>
+      <div class="value-item"><span>🌙</span> MoonPaw <span class="value-dot"></span></div>
+      <div class="value-item"><span>🩺</span> Animal Welfare <span class="value-dot"></span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- PET OF THE WEEK                                            -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section style="padding:40px 24px;background:var(--bg-secondary);text-align:center" aria-label="Pet of the Week">
+    <div
+      style="max-width:800px;margin:0 auto;background:linear-gradient(135deg,var(--midnight),#1a2744);border-radius:var(--radius-xl);padding:30px;color:white;display:flex;align-items:center;gap:30px;box-shadow:0 20px 40px rgba(0,0,0,0.1);position:relative;overflow:hidden">
+      <div
+        style="position:absolute;top:-50px;right:-50px;width:150px;height:150px;background:radial-gradient(circle,rgba(250,204,21,0.2),transparent);border-radius:50%">
+      </div>
+      <div
+        style="flex-shrink:0;width:180px;height:180px;border-radius:50%;overflow:hidden;border:4px solid var(--moon-gold);box-shadow:0 0 20px rgba(250,204,21,0.3)">
+        <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=300" alt="Bella"
+          style="width:100%;height:100%;object-fit:cover" />
+      </div>
+      <div style="text-align:left;flex:1">
+        <div
+          style="display:inline-block;background:rgba(250,204,21,0.2);color:var(--moon-gold);padding:4px 12px;border-radius:20px;font-size:0.75rem;font-weight:700;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px">
+          🐶 Pet of The Week</div>
+        <h2 style="font-size:2.5rem;font-weight:800;margin-bottom:5px;font-family:var(--font-heading)">Bella</h2>
+        <p style="color:#cbd5e1;font-size:1.1rem;margin-bottom:12px">Golden Retriever</p>
+        <div style="color:var(--moon-gold);font-size:1rem;margin-bottom:16px;letter-spacing:2px">⭐⭐⭐⭐⭐</div>
+        <div style="display:flex;align-items:center;gap:16px">
+          <span
+            style="background:rgba(34,197,94,0.15);color:#4ade80;font-size:0.85rem;padding:6px 14px;border-radius:20px;font-weight:700;border:1px solid rgba(34,197,94,0.3)">95%
+            Match</span>
+          <a href="pet-detail.html" class="btn-gold"
+            style="padding:10px 24px;font-size:0.9rem;text-decoration:none">Adopt Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="about" class="section-py" aria-label="About MoonPaw">
+    <div class="container">
+      <div class="about-grid">
+        <!-- Image -->
+        <div class="about-image-wrapper reveal-left">
+          <div class="about-image-bg">
+            🏠
+            <!-- Decorative elements -->
+            <div
+              style="position:absolute;bottom:30px;left:30px;font-size:3rem;animation:animalsFloat 4s ease-in-out infinite">
+              🐕🐈🐰</div>
+          </div>
+          <!-- Floating cards -->
+          <div class="about-floating-card about-card-1">
+            <div class="about-card-icon green">❤️</div>
+            <div class="about-card-text">
+              <strong>1,500+</strong>
+              Adopsi Sukses
+            </div>
+          </div>
+          <div class="about-floating-card about-card-2">
+            <div class="about-card-icon gold">🌟</div>
+            <div class="about-card-text">
+              <strong>4.9/5</strong>
+              Rating Pengguna
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="about-content reveal-right">
+          <div class="section-badge" style="display:inline-flex">
+            🌙 Tentang MoonPaw
+          </div>
+          <h2 class="section-title">Why Choose <span class="text-gradient">MoonPaw</span>?</h2>
+          <p class="section-subtitle" style="text-align:left;margin:0 0 32px">
+            MoonPaw adalah platform digital yang membantu shelter menemukan keluarga terbaik
+            bagi setiap hewan. Kami percaya bahwa setiap hewan berhak mendapatkan rumah yang
+            penuh kasih sayang. Dengan teknologi modern dan sistem yang transparan, kami
+            menjembatani pertemuan antara hewan dan keluarga impian mereka.
+          </p>
+          <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:32px;line-height:1.8">
+            Bergabunglah dengan lebih dari <strong style="color:var(--moon-gold)">5.000+ adopter</strong> yang
+            telah menemukan sahabat berbulu mereka melalui MoonPaw. Setiap adopsi adalah langkah
+            kecil yang membawa perubahan besar bagi kehidupan hewan.
+          </p>
+          <div class="about-features">
+            <div class="about-feature-item">
+              <div class="check"><i class="fas fa-check" style="font-size:0.6rem"></i></div><span>Proses adopsi
+                online</span>
+            </div>
+            <div class="about-feature-item">
+              <div class="check"><i class="fas fa-check" style="font-size:0.6rem"></i></div><span>Rekam kesehatan
+                lengkap</span>
+            </div>
+            <div class="about-feature-item">
+              <div class="check"><i class="fas fa-check" style="font-size:0.6rem"></i></div><span>Verifikasi shelter
+                resmi</span>
+            </div>
+            <div class="about-feature-item">
+              <div class="check"><i class="fas fa-check" style="font-size:0.6rem"></i></div><span>Sertifikat adopsi
+                digital</span>
+            </div>
+            <div class="about-feature-item">
+              <div class="check"><i class="fas fa-check" style="font-size:0.6rem"></i></div><span>Jadwal kunjungan
+                online</span>
+            </div>
+            <div class="about-feature-item">
+              <div class="check"><i class="fas fa-check" style="font-size:0.6rem"></i></div><span>Notifikasi
+                real-time</span>
+            </div>
+          </div>
+          <div style="margin-top:32px">
+            <a href="#featured-pets" class="btn-gold" id="about-explore-btn">
+              <i class="fas fa-search"></i> Cari Hewan Sekarang
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- STATISTICS                                                 -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="statistics" aria-label="MoonPaw statistics">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card reveal reveal-delay-1">
+          <span class="stat-icon">🐾</span>
+          <span class="stat-number" data-count="250" data-suffix="+">0+</span>
+          <span class="stat-label">Hewan Tersedia</span>
+        </div>
+        <div class="stat-card reveal reveal-delay-2">
+          <span class="stat-icon">🏠</span>
+          <span class="stat-number" data-count="35" data-suffix="+">0+</span>
+          <span class="stat-label">Shelter Partner</span>
+        </div>
+        <div class="stat-card reveal reveal-delay-3">
+          <span class="stat-icon">❤️</span>
+          <span class="stat-number" data-count="1500" data-suffix="+">0+</span>
+          <span class="stat-label">Adopsi Sukses</span>
+        </div>
+        <div class="stat-card reveal reveal-delay-4">
+          <span class="stat-icon">👤</span>
+          <span class="stat-number" data-count="5000" data-suffix="+">0+</span>
+          <span class="stat-label">Pengguna Terdaftar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- FEATURED PETS                                              -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="featured-pets" class="section-py" aria-label="Featured pets for adoption">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:60px">
+        <div class="section-badge">🐾 Hewan Terbaru</div>
+        <h2 class="section-title">Hewan yang Menunggu <span class="text-gradient">Rumah Baru</span></h2>
+        <p class="section-subtitle">
+          Temukan sahabat berbulumu dari ratusan hewan yang siap diadopsi dari shelter-shelter terpercaya di seluruh
+          Indonesia.
+        </p>
+      </div>
+
+      <div class="pets-grid">
+        <!-- Pet 1: Bella -->
+        <article class="pet-card reveal reveal-delay-1" id="pet-card-1">
+          <div class="pet-image">
+            <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=600"
+              alt="Bella - Golden Retriever" />
+            <span class="pet-status available">Available</span>
+            <button class="pet-wishlist-btn" id="wishlist-1" aria-label="Add Bella to wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="pet-gallery-dots" style="z-index: 2;">
+              <div class="pet-gallery-dot active"></div>
+              <div class="pet-gallery-dot"></div>
+              <div class="pet-gallery-dot"></div>
+            </div>
+          </div>
+          <div class="pet-body">
+            <h3 class="pet-name">Bella</h3>
+            <p class="pet-breed">Golden Retriever</p>
+            <div class="pet-meta">
+              <span class="pet-meta-item"><i class="fas fa-venus"></i> Betina</span>
+              <span class="pet-meta-item"><i class="fas fa-calendar"></i> 2 Tahun</span>
+              <span class="pet-meta-item"><i class="fas fa-weight"></i> 18 kg</span>
+            </div>
+            <div class="pet-location"><i class="fas fa-map-marker-alt"></i> Happy Paws Shelter, Banjarmasin</div>
+            <div class="health-badges">
+              <span class="health-badge ok"><i class="fas fa-syringe"></i> Vaksin ✓</span>
+              <span class="health-badge ok"><i class="fas fa-cut"></i> Steril ✓</span>
+            </div>
+            <div class="pet-actions" style="margin-top:16px">
+              <button class="btn-pet btn-pet-detail" id="detail-1" aria-label="View Bella details"><i
+                  class="fas fa-eye"></i> Detail</button>
+              <button class="btn-pet btn-pet-adopt" id="adopt-1" aria-label="Adopt Bella"><i class="fas fa-paw"></i>
+                Adopt</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pet 2: Mochi -->
+        <article class="pet-card reveal reveal-delay-2" id="pet-card-2">
+          <div class="pet-image">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600"
+              alt="Mochi - British Shorthair" />
+            <span class="pet-status available">Available</span>
+            <button class="pet-wishlist-btn" id="wishlist-2" aria-label="Add Mochi to wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="pet-gallery-dots" style="z-index: 2;">
+              <div class="pet-gallery-dot active"></div>
+              <div class="pet-gallery-dot"></div>
+            </div>
+          </div>
+          <div class="pet-body">
+            <h3 class="pet-name">Mochi</h3>
+            <p class="pet-breed">British Shorthair</p>
+            <div class="pet-meta">
+              <span class="pet-meta-item"><i class="fas fa-mars"></i> Jantan</span>
+              <span class="pet-meta-item"><i class="fas fa-calendar"></i> 1 Tahun</span>
+              <span class="pet-meta-item"><i class="fas fa-weight"></i> 4 kg</span>
+            </div>
+            <div class="pet-location"><i class="fas fa-map-marker-alt"></i> Love Animal House, Samarinda</div>
+            <div class="health-badges">
+              <span class="health-badge ok"><i class="fas fa-syringe"></i> Vaksin ✓</span>
+              <span class="health-badge warn"><i class="fas fa-cut"></i> Belum Steril</span>
+            </div>
+            <div class="pet-actions" style="margin-top:16px">
+              <button class="btn-pet btn-pet-detail" id="detail-2" aria-label="View Mochi details"><i
+                  class="fas fa-eye"></i> Detail</button>
+              <button class="btn-pet btn-pet-adopt" id="adopt-2" aria-label="Adopt Mochi"><i class="fas fa-paw"></i>
+                Adopt</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pet 3: Snow -->
+        <article class="pet-card reveal reveal-delay-3" id="pet-card-3">
+          <div class="pet-image">
+            <img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&q=80&w=600"
+              alt="Snow - Holland Lop" />
+            <span class="pet-status available">Available</span>
+            <button class="pet-wishlist-btn" id="wishlist-3" aria-label="Add Snow to wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+            <div class="pet-gallery-dots" style="z-index: 2;">
+              <div class="pet-gallery-dot active"></div>
+              <div class="pet-gallery-dot"></div>
+            </div>
+          </div>
+          <div class="pet-body">
+            <h3 class="pet-name">Snow</h3>
+            <p class="pet-breed">Holland Lop</p>
+            <div class="pet-meta">
+              <span class="pet-meta-item"><i class="fas fa-venus"></i> Betina</span>
+              <span class="pet-meta-item"><i class="fas fa-calendar"></i> 8 Bulan</span>
+              <span class="pet-meta-item"><i class="fas fa-weight"></i> 1.5 kg</span>
+            </div>
+            <div class="pet-location"><i class="fas fa-map-marker-alt"></i> Moon Shelter, Banjarbaru</div>
+            <div class="health-badges">
+              <span class="health-badge ok"><i class="fas fa-syringe"></i> Vaksin ✓</span>
+              <span class="health-badge ok"><i class="fas fa-heart"></i> Sehat ✓</span>
+            </div>
+            <div class="pet-actions" style="margin-top:16px">
+              <button class="btn-pet btn-pet-detail" id="detail-3" aria-label="View Snow details"><i
+                  class="fas fa-eye"></i> Detail</button>
+              <button class="btn-pet btn-pet-adopt" id="adopt-3" aria-label="Adopt Snow"><i class="fas fa-paw"></i>
+                Adopt</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pet 4: Max -->
+        <article class="pet-card reveal reveal-delay-1" id="pet-card-4">
+          <div class="pet-image">
+            <img src="https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?auto=format&fit=crop&q=80&w=600"
+              alt="Max - Labrador" />
+            <span class="pet-status available">Available</span>
+            <button class="pet-wishlist-btn" id="wishlist-4" aria-label="Add Max to wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="pet-body">
+            <h3 class="pet-name">Max</h3>
+            <p class="pet-breed">Labrador Retriever</p>
+            <div class="pet-meta">
+              <span class="pet-meta-item"><i class="fas fa-mars"></i> Jantan</span>
+              <span class="pet-meta-item"><i class="fas fa-calendar"></i> 3 Tahun</span>
+              <span class="pet-meta-item"><i class="fas fa-weight"></i> 25 kg</span>
+            </div>
+            <div class="pet-location"><i class="fas fa-map-marker-alt"></i> Hope Animal Rescue, Martapura</div>
+            <div class="health-badges">
+              <span class="health-badge ok"><i class="fas fa-syringe"></i> Vaksin ✓</span>
+              <span class="health-badge ok"><i class="fas fa-cut"></i> Steril ✓</span>
+            </div>
+            <div class="pet-actions" style="margin-top:16px">
+              <button class="btn-pet btn-pet-detail" id="detail-4" aria-label="View Max details"><i
+                  class="fas fa-eye"></i> Detail</button>
+              <button class="btn-pet btn-pet-adopt" id="adopt-4" aria-label="Adopt Max"><i class="fas fa-paw"></i>
+                Adopt</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pet 5: Luna -->
+        <article class="pet-card reveal reveal-delay-2" id="pet-card-5">
+          <div class="pet-image">
+            <img src="https://images.unsplash.com/photo-1618826411640-d6df44dd3f7a?auto=format&fit=crop&q=80&w=600"
+              alt="Luna - Persian Mix" />
+            <span class="pet-status available">Available</span>
+            <button class="pet-wishlist-btn" id="wishlist-5" aria-label="Add Luna to wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="pet-body">
+            <h3 class="pet-name">Luna</h3>
+            <p class="pet-breed">Persian Mix</p>
+            <div class="pet-meta">
+              <span class="pet-meta-item"><i class="fas fa-venus"></i> Betina</span>
+              <span class="pet-meta-item"><i class="fas fa-calendar"></i> 2 Tahun</span>
+              <span class="pet-meta-item"><i class="fas fa-weight"></i> 3.5 kg</span>
+            </div>
+            <div class="pet-location"><i class="fas fa-map-marker-alt"></i> Rumah Kucing Indonesia, Balikpapan</div>
+            <div class="health-badges">
+              <span class="health-badge ok"><i class="fas fa-syringe"></i> Vaksin ✓</span>
+              <span class="health-badge ok"><i class="fas fa-cut"></i> Steril ✓</span>
+            </div>
+            <div class="pet-actions" style="margin-top:16px">
+              <button class="btn-pet btn-pet-detail" id="detail-5" aria-label="View Luna details"><i
+                  class="fas fa-eye"></i> Detail</button>
+              <button class="btn-pet btn-pet-adopt" id="adopt-5" aria-label="Adopt Luna"><i class="fas fa-paw"></i>
+                Adopt</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pet 6: Coco -->
+        <article class="pet-card reveal reveal-delay-3" id="pet-card-6">
+          <div class="pet-image">
+            <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=600"
+              alt="Coco - Shih Tzu" />
+            <span class="pet-status available">Available</span>
+            <button class="pet-wishlist-btn" id="wishlist-6" aria-label="Add Coco to wishlist">
+              <i class="far fa-heart"></i>
+            </button>
+          </div>
+          <div class="pet-body">
+            <h3 class="pet-name">Coco</h3>
+            <p class="pet-breed">Shih Tzu</p>
+            <div class="pet-meta">
+              <span class="pet-meta-item"><i class="fas fa-mars"></i> Jantan</span>
+              <span class="pet-meta-item"><i class="fas fa-calendar"></i> 1.5 Tahun</span>
+              <span class="pet-meta-item"><i class="fas fa-weight"></i> 5 kg</span>
+            </div>
+            <div class="pet-location"><i class="fas fa-map-marker-alt"></i> Happy Paws Shelter, Banjarmasin</div>
+            <div class="health-badges">
+              <span class="health-badge ok"><i class="fas fa-syringe"></i> Vaksin ✓</span>
+              <span class="health-badge warn"><i class="fas fa-cut"></i> Belum Steril</span>
+            </div>
+            <div class="pet-actions" style="margin-top:16px">
+              <button class="btn-pet btn-pet-detail" id="detail-6" aria-label="View Coco details"><i
+                  class="fas fa-eye"></i> Detail</button>
+              <button class="btn-pet btn-pet-adopt" id="adopt-6" aria-label="Adopt Coco"><i class="fas fa-paw"></i>
+                Adopt</button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="pets-cta">
+        <a href="pets.html" class="btn-gold" id="view-all-pets-btn">
+          <i class="fas fa-search"></i> Lihat Semua Hewan
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- WHY CHOOSE MOONPAW                                         -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="why-choose" class="section-py" aria-label="Why choose MoonPaw features">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:60px">
+        <div class="section-badge">✨ Keunggulan Kami</div>
+        <h2 class="section-title">Kenapa Harus <span class="text-gradient">MoonPaw</span>?</h2>
+        <p class="section-subtitle">
+          Kami menghadirkan pengalaman adopsi yang modern, aman, dan menyenangkan
+          untuk setiap calon pemilik hewan peliharaan.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-delay-1" id="feature-match">
+          <div class="feature-icon-wrap">🤖</div>
+          <h3 class="feature-title">Smart Recommendation</h3>
+          <p class="feature-desc">Sistem AI memberikan rekomendasi hewan yang paling cocok berdasarkan gaya hidup dan
+            preferensimu.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2" id="feature-health">
+          <div class="feature-icon-wrap">🩺</div>
+          <h3 class="feature-title">Pet Health Record</h3>
+          <p class="feature-desc">Akses riwayat kesehatan lengkap setiap hewan sebelum memutuskan untuk mengadopsi.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3" id="feature-easy">
+          <div class="feature-icon-wrap">❤️</div>
+          <h3 class="feature-title">Easy Adoption</h3>
+          <p class="feature-desc">Proses pengajuan adopsi 100% online — dari formulir hingga jadwal kunjungan, semua
+            digital.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-4" id="feature-secure">
+          <div class="feature-icon-wrap">🔒</div>
+          <h3 class="feature-title">Secure Platform</h3>
+          <p class="feature-desc">Data pribadimu terlindungi dengan enkripsi terkini. Shelter juga telah diverifikasi
+            resmi.</p>
+        </div>
+        <div class="feature-card reveal reveal-delay-1" id="feature-cert">
+          <div class="feature-icon-wrap">📄</div>
+          <h3 class="feature-title">Digital Certificate</h3>
+          <p class="feature-desc">Dapatkan sertifikat adopsi digital resmi dengan QR Code setelah proses adopsi selesai.
+          </p>
+        </div>
+        <div class="feature-card reveal reveal-delay-2" id="feature-notify">
+          <div class="feature-icon-wrap">🔔</div>
+          <h3 class="feature-title">Notifikasi Real-time</h3>
+          <p class="feature-desc">Pantau status pengajuan adopsimu secara real-time melalui sistem notifikasi otomatis.
+          </p>
+        </div>
+        <div class="feature-card reveal reveal-delay-3" id="feature-visit">
+          <div class="feature-icon-wrap">📅</div>
+          <h3 class="feature-title">Visit Scheduling</h3>
+          <p class="feature-desc">Pilih dan jadwalkan kunjungan ke shelter secara online sesuai waktu yang paling cocok.
+          </p>
+        </div>
+        <div class="feature-card reveal reveal-delay-4" id="feature-dark">
+          <div class="feature-icon-wrap">🌙</div>
+          <h3 class="feature-title">Dark Mode & Responsive</h3>
+          <p class="feature-desc">Nikmati pengalaman browsing yang nyaman di semua perangkat dengan mode terang maupun
+            gelap.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- HOW IT WORKS                                               -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="how-it-works" class="section-py" aria-label="How adoption process works">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:60px">
+        <div class="section-badge"
+          style="color:var(--moon-gold);background:rgba(250,204,21,0.1);border-color:rgba(250,204,21,0.3)">
+          🐾 Alur Adopsi
+        </div>
+        <h2 class="section-title" style="color:white">Cara Adopsi di <span class="text-gradient">MoonPaw</span></h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,0.6)">
+          7 langkah mudah menuju pertemuan dengan sahabat berbulumu yang sempurna.
+        </p>
+      </div>
+
+      <div class="steps-container">
+        <div class="steps-line" aria-hidden="true"></div>
+        <div class="steps-grid">
+          <div class="step-item reveal reveal-delay-1" id="step-1">
+            <div class="step-circle"><span class="step-icon">📝</span></div>
+            <div class="step-label">Register Akun</div>
+            <span class="step-arrow">↓</span>
+          </div>
+          <div class="step-item reveal reveal-delay-2" id="step-2">
+            <div class="step-circle"><span class="step-icon">🔑</span></div>
+            <div class="step-label">Login</div>
+            <span class="step-arrow">↓</span>
+          </div>
+          <div class="step-item reveal reveal-delay-3" id="step-3">
+            <div class="step-circle"><span class="step-icon">🔍</span></div>
+            <div class="step-label">Cari Hewan</div>
+            <span class="step-arrow">↓</span>
+          </div>
+          <div class="step-item reveal reveal-delay-4" id="step-4">
+            <div class="step-circle"><span class="step-icon">📋</span></div>
+            <div class="step-label">Isi Form Adopsi</div>
+            <span class="step-arrow">↓</span>
+          </div>
+          <div class="step-item reveal reveal-delay-5" id="step-5">
+            <div class="step-circle"><span class="step-icon">📅</span></div>
+            <div class="step-label">Jadwal Kunjungan</div>
+            <span class="step-arrow">↓</span>
+          </div>
+          <div class="step-item reveal reveal-delay-1" id="step-6">
+            <div class="step-circle"><span class="step-icon">✅</span></div>
+            <div class="step-label">Verifikasi Shelter</div>
+            <span class="step-arrow">↓</span>
+          </div>
+          <div class="step-item reveal reveal-delay-2" id="step-7">
+            <div class="step-circle" style="background:linear-gradient(135deg,#22C55E,#16A34A)"><span
+                class="step-icon">🎉</span></div>
+            <div class="step-label" style="color:var(--moon-gold)">Selamat Adopsi!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center" style="margin-top:56px">
+        <a href="register.html" class="btn-gold" id="how-cta-btn">
+          <i class="fas fa-paw"></i> Mulai Adopsi Sekarang
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- SMART MATCH BANNER                                         -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="smart-match-banner" aria-label="Smart Pet Match feature">
+    <div class="container">
+      <div class="smart-match-inner">
+        <div class="reveal-left">
+          <div class="section-badge"
+            style="color:var(--moon-gold);background:rgba(250,204,21,0.08);border-color:rgba(250,204,21,0.25)">
+            🤖 Smart Feature
+          </div>
+          <h2 class="section-title" style="color:white">
+            Temukan Hewan yang <span class="text-gradient">Paling Cocok</span> Untukmu
+          </h2>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.8;margin:16px 0 32px">
+            Isi kuesioner singkat tentang gaya hidupmu — jenis rumah, waktu luang,
+            pengalaman memelihara hewan, dan preferensimu. Sistem kami akan
+            mencarikan hewan yang paling sesuai!
+          </p>
+          <div class="smart-match-features">
+            <div class="smf-item"><i class="fas fa-home"></i><span>Jenis Tempat Tinggal</span></div>
+            <div class="smf-item"><i class="fas fa-clock"></i><span>Waktu Luang Harian</span></div>
+            <div class="smf-item"><i class="fas fa-child"></i><span>Ada Anak Kecil?</span></div>
+            <div class="smf-item"><i class="fas fa-star"></i><span>Pengalaman Memelihara</span></div>
+            <div class="smf-item"><i class="fas fa-tree"></i><span>Punya Halaman?</span></div>
+            <div class="smf-item"><i class="fas fa-heart"></i><span>Hewan Favorit</span></div>
+          </div>
+          <div style="margin-top:32px">
+            <button class="btn-gold" id="startMatchBtn">
+              <i class="fas fa-magic"></i> Mulai Smart Match
+            </button>
+          </div>
+        </div>
+
+        <div class="smart-match-visual reveal-right">
+          <div class="match-card" id="match-card-1">
+            <div class="match-card-emoji">🐕</div>
+            <div class="match-card-info">
+              <div class="match-card-name">Bella – Golden Retriever</div>
+              <div class="match-card-breed">Cocok untuk keluarga aktif</div>
+              <div class="match-bar-wrap">
+                <div class="match-bar" data-width="95" style="width:0%"></div>
+              </div>
+            </div>
+            <div class="match-percent">95%</div>
+          </div>
+          <div class="match-card" id="match-card-2">
+            <div class="match-card-emoji">🐱</div>
+            <div class="match-card-info">
+              <div class="match-card-name">Mochi – British Shorthair</div>
+              <div class="match-card-breed">Cocok untuk tinggal apartemen</div>
+              <div class="match-bar-wrap">
+                <div class="match-bar" data-width="87" style="width:0%"></div>
+              </div>
+            </div>
+            <div class="match-percent">87%</div>
+          </div>
+          <div class="match-card" id="match-card-3">
+            <div class="match-card-emoji">🐰</div>
+            <div class="match-card-info">
+              <div class="match-card-name">Snow – Holland Lop</div>
+              <div class="match-card-breed">Cocok untuk pemula</div>
+              <div class="match-bar-wrap">
+                <div class="match-bar" data-width="78" style="width:0%"></div>
+              </div>
+            </div>
+            <div class="match-percent">78%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- PARTNER SHELTERS                                           -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="partners" aria-label="Partner shelters">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:48px">
+        <div class="section-badge">🏠 Shelter Partner</div>
+        <h2 class="section-title">Shelter <span class="text-gradient">Terpercaya</span> Kami</h2>
+        <p class="section-subtitle">
+          Bekerja sama dengan shelter-shelter terbaik dan terverifikasi di seluruh Indonesia.
+        </p>
+      </div>
+    </div>
+    <div class="partners-track" id="partnersTrack">
+      <div class="partner-item"><span class="partner-icon">🐾</span><span class="partner-name">Happy Paws Shelter</span>
+      </div>
+      <div class="partner-item"><span class="partner-icon">❤️</span><span class="partner-name">Love Animal House</span>
+      </div>
+      <div class="partner-item"><span class="partner-icon">🌙</span><span class="partner-name">Moon Shelter</span></div>
+      <div class="partner-item"><span class="partner-icon">🐈</span><span class="partner-name">Rumah Kucing
+          Indonesia</span></div>
+      <div class="partner-item"><span class="partner-icon">🌟</span><span class="partner-name">Hope Animal Rescue</span>
+      </div>
+      <div class="partner-item"><span class="partner-icon">🐕</span><span class="partner-name">Banjarmasin Pet
+          Care</span></div>
+      <div class="partner-item"><span class="partner-icon">🦜</span><span class="partner-name">Kalimantan Animal
+          Rescue</span></div>
+      <div class="partner-item"><span class="partner-icon">🐾</span><span class="partner-name">Sahabat Hewan
+          Foundation</span></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- TESTIMONIALS                                               -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="testimonials" class="section-py" aria-label="User testimonials">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:60px">
+        <div class="section-badge">⭐ Testimoni</div>
+        <h2 class="section-title">Cerita <span class="text-gradient">Bahagia</span> Mereka</h2>
+        <p class="section-subtitle">
+          Ribuan keluarga telah menemukan sahabat berbulu mereka melalui MoonPaw.
+          Inilah kisah mereka.
+        </p>
+      </div>
+
+      <div class="testimonials-slider" aria-label="Testimonials carousel">
+        <div class="testimonials-track" id="testimonialsTrack">
+          <div class="testimonial-card" id="testi-1">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">MoonPaw membuat proses adopsi menjadi sangat mudah dan transparan. Saya bisa
+              melihat riwayat kesehatan Bella sebelum mengadopsinya. Pelayanannya luar biasa!</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">A</div>
+              <div>
+                <div class="author-name">Amanda Putri</div>
+                <div class="author-role">Adopter – Banjarmasin</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" id="testi-2">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">Saya bisa melihat riwayat kesehatan hewan sebelum mengadopsinya. Fitur Smart
+              Match juga sangat membantu menemukan kucing yang cocok untuk saya yang tinggal di apartemen.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">R</div>
+              <div>
+                <div class="author-name">Rizky Pratama</div>
+                <div class="author-role">Adopter – Samarinda</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" id="testi-3">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">MoonPaw membantu kami menemukan adopter yang benar-benar bertanggung jawab.
+              Dashboard admin sangat lengkap dan memudahkan manajemen shelter kami sehari-hari.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background:linear-gradient(135deg,#10B981,#059669)">🐾</div>
+              <div>
+                <div class="author-name">Happy Paws Shelter</div>
+                <div class="author-role">Partner Shelter – Banjarmasin</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" id="testi-4">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">Prosesnya cepat dan mudah. Dalam 2 minggu saya sudah bisa membawa pulang Mochi
+              ke rumah. Notifikasi real-time sangat membantu memantau status pengajuan adopsi saya.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background:linear-gradient(135deg,#8B5CF6,#6D28D9)">S</div>
+              <div>
+                <div class="author-name">Siti Rahma</div>
+                <div class="author-role">Adopter – Banjarbaru</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card" id="testi-5">
+            <div class="testimonial-quote">"</div>
+            <div class="testimonial-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+              <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+            </div>
+            <p class="testimonial-text">Digital adoption certificate-nya sangat keren! QR Code-nya bisa diverifikasi
+              kapan saja. MoonPaw benar-benar platform adopsi yang modern dan terpercaya.</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" style="background:linear-gradient(135deg,#F59E0B,#D97706)">D</div>
+              <div>
+                <div class="author-name">Dian Pertiwi</div>
+                <div class="author-role">Adopter – Balikpapan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider Controls -->
+      <div class="slider-controls">
+        <button class="slider-btn" id="sliderPrev" aria-label="Previous testimonial">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="slider-dots">
+          <div class="slider-dot active" aria-label="Testimonial 1"></div>
+          <div class="slider-dot" aria-label="Testimonial 2"></div>
+          <div class="slider-dot" aria-label="Testimonial 3"></div>
+          <div class="slider-dot" aria-label="Testimonial 4"></div>
+          <div class="slider-dot" aria-label="Testimonial 5"></div>
+        </div>
+        <button class="slider-btn" id="sliderNext" aria-label="Next testimonial">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- BLOG & EDUCATION                                           -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="blog" class="section-py" aria-label="Blog and education articles">
+    <div class="container">
+      <div
+        style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px">
+        <div>
+          <div class="section-badge">📚 Blog & Edukasi</div>
+          <h2 class="section-title">Artikel & <span class="text-gradient">Tips Perawatan</span></h2>
+        </div>
+        <a href="blog.html" class="btn-outline-gold" id="view-all-blog-btn" style="flex-shrink:0">Lihat Semua <i
+            class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <div class="blog-grid">
+        <article class="blog-card reveal reveal-delay-1" id="blog-card-1">
+          <div class="blog-image">
+            🐱
+            <span class="blog-category">Tips & Care</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fas fa-calendar-alt"></i> 10 Jul 2026</span>
+              <span><i class="fas fa-user"></i> Admin MoonPaw</span>
+              <span><i class="fas fa-eye"></i> 1.2k views</span>
+            </div>
+            <h3 class="blog-title">Cara Merawat Anak Kucing yang Baru Diadopsi</h3>
+            <p class="blog-excerpt">Mengadopsi anak kucing adalah pengalaman yang menyenangkan, namun membutuhkan
+              persiapan yang matang. Berikut panduan lengkap merawat anak kucing agar tumbuh sehat dan bahagia...</p>
+            <a href="blog/cara-merawat-anak-kucing.html" class="blog-read-more" id="blog-link-1">
+              Baca Selengkapnya <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal reveal-delay-2" id="blog-card-2">
+          <div class="blog-image" style="background:linear-gradient(135deg,#1a2e1a,#2d5016)">
+            🐕
+            <span class="blog-category">Panduan Adopsi</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fas fa-calendar-alt"></i> 8 Jul 2026</span>
+              <span><i class="fas fa-user"></i> drh. Sarah</span>
+              <span><i class="fas fa-eye"></i> 980 views</span>
+            </div>
+            <h3 class="blog-title">Persiapan Sebelum Mengadopsi Anjing Pertamamu</h3>
+            <p class="blog-excerpt">Sebelum membawa anjing ke rumah, ada beberapa hal penting yang perlu dipersiapkan.
+              Mulai dari tempat tinggal, perlengkapan, hingga jadwal vaksinasi yang harus segera dilakukan...</p>
+            <a href="blog/persiapan-adopsi-anjing.html" class="blog-read-more" id="blog-link-2">
+              Baca Selengkapnya <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="blog-card reveal reveal-delay-3" id="blog-card-3">
+          <div class="blog-image" style="background:linear-gradient(135deg,#1a1a3e,#2d2d6b)">
+            💉
+            <span class="blog-category">Kesehatan</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span><i class="fas fa-calendar-alt"></i> 5 Jul 2026</span>
+              <span><i class="fas fa-user"></i> drh. Budi</span>
+              <span><i class="fas fa-eye"></i> 756 views</span>
+            </div>
+            <h3 class="blog-title">Pentingnya Vaksinasi untuk Kesehatan Hewan Peliharaanmu</h3>
+            <p class="blog-excerpt">Vaksinasi adalah langkah penting dalam menjaga kesehatan hewan peliharaan. Ketahui
+              jadwal vaksin yang tepat, jenis vaksin yang dibutuhkan, dan cara memantau kondisi hewan pasca vaksinasi...
+            </p>
+            <a href="blog/pentingnya-vaksin-hewan.html" class="blog-read-more" id="blog-link-3">
+              Baca Selengkapnya <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="newsletter-banner reveal" style="margin-top:60px">
+        <div class="newsletter-text">
+          <h3>📧 Dapatkan Tips Perawatan Hewan Terbaru</h3>
+          <p>Subscribe newsletter kami dan dapatkan artikel edukasi, tips adopsi, dan update hewan terbaru langsung di
+            inboxmu.</p>
+        </div>
+        <form class="input-group" id="newsletterForm" style="min-width:300px">
+          <input type="email" class="form-control" id="newsletter-email" placeholder="Masukkan email kamu..." required
+            aria-label="Email for newsletter" />
+          <button type="submit" class="btn-gold" id="newsletter-submit-btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- FAQ                                                        -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="faq" class="section-py" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:60px">
+        <div class="section-badge">❓ FAQ</div>
+        <h2 class="section-title">Pertanyaan yang <span class="text-gradient">Sering Ditanyakan</span></h2>
+        <p class="section-subtitle">
+          Temukan jawaban dari pertanyaan-pertanyaan umum seputar proses adopsi di MoonPaw.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <!-- FAQ List -->
+        <div class="faq-list">
+          <div class="faq-item open" id="faq-1">
+            <div class="faq-question" role="button" aria-expanded="true" tabindex="0">
+              <span class="faq-q-text">Bagaimana cara mengadopsi hewan di MoonPaw?</span>
+              <div class="faq-icon"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="faq-answer">
+              <p class="faq-answer-text">Caranya mudah! Daftar akun, pilih hewan yang kamu suka, isi formulir adopsi,
+                lalu tunggu verifikasi dari shelter. Setelah disetujui, jadwalkan kunjungan dan selamat, hewan berbulumu
+                siap dibawa pulang!</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-2">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span class="faq-q-text">Apakah adopsi di MoonPaw gratis?</span>
+              <div class="faq-icon"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="faq-answer">
+              <p class="faq-answer-text">Menggunakan platform MoonPaw 100% gratis. Namun, beberapa shelter mungkin
+                memiliki biaya administrasi sesuai kebijakan masing-masing. Informasi biaya ini selalu ditampilkan
+                secara transparan di halaman shelter.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-3">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span class="faq-q-text">Apa yang terjadi jika pengajuan saya ditolak?</span>
+              <div class="faq-icon"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="faq-answer">
+              <p class="faq-answer-text">Jangan khawatir! Kamu akan mendapatkan notifikasi beserta alasan penolakan dari
+                shelter. Kamu dapat melihat feedback tersebut dan mengajukan adopsi untuk hewan lainnya yang lebih
+                sesuai.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-4">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span class="faq-q-text">Apakah saya bisa melihat riwayat kesehatan hewan?</span>
+              <div class="faq-icon"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="faq-answer">
+              <p class="faq-answer-text">Ya! Setiap hewan di MoonPaw memiliki rekam kesehatan digital yang mencakup
+                status vaksinasi, riwayat pemeriksaan, berat badan, status sterilisasi, dan kondisi kesehatan terkini.
+                Kamu bisa aksesnya sebelum mengajukan adopsi.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-5">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span class="faq-q-text">Apa itu Smart Pet Match dan bagaimana cara kerjanya?</span>
+              <div class="faq-icon"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="faq-answer">
+              <p class="faq-answer-text">Smart Pet Match adalah fitur rekomendasi yang mencocokkan hewan dengan gaya
+                hidupmu. Isi kuesioner singkat tentang tempat tinggal, waktu luang, pengalaman memelihara hewan, dan
+                preferensimu — sistem kami akan menampilkan daftar hewan yang paling cocok untukmu!</p>
+            </div>
+          </div>
+
+          <div class="faq-item" id="faq-6">
+            <div class="faq-question" role="button" aria-expanded="false" tabindex="0">
+              <span class="faq-q-text">Berapa lama proses adopsi berlangsung?</span>
+              <div class="faq-icon"><i class="fas fa-plus"></i></div>
+            </div>
+            <div class="faq-answer">
+              <p class="faq-answer-text">Rata-rata proses adopsi berlangsung 3–14 hari kerja, tergantung pada shelter
+                dan kelengkapan dokumen. Setelah pengajuan disetujui, kamu bisa langsung menjadwalkan kunjungan dan
+                membawa pulang hewan berbulumu!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ CTA Card -->
+        <div class="faq-cta-card reveal-right">
+          <span class="faq-cta-icon">💬</span>
+          <h3>Masih Ada Pertanyaan?</h3>
+          <p>Tim MoonPaw siap membantu kamu 7 hari seminggu, mulai dari pertanyaan seputar adopsi hingga perawatan
+            hewan.</p>
+          <a href="#contact" class="btn-gold" id="faq-contact-btn"
+            style="display:inline-flex;text-decoration:none;margin-bottom:16px">
+            <i class="fas fa-comments"></i> Hubungi Kami
+          </a>
+          <br />
+          <div style="margin-top:8px">
+            <a href="https://wa.me/000000000" class="btn-outline-gold" id="faq-wa-btn" style="text-decoration:none">
+              <i class="fab fa-whatsapp"></i> WhatsApp Kami
+            </a>
+          </div>
+          <div style="margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1)">
+            <p style="font-size:0.78rem;color:rgba(255,255,255,0.4);margin:0">
+              🕘 Jam operasional:<br />
+              <strong style="color:rgba(255,255,255,0.7)">Senin – Minggu, 08.00 – 20.00 WITA</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- CONTACT                                                    -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="contact" class="section-py" aria-label="Contact MoonPaw">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:60px">
+        <div class="section-badge">📍 Hubungi Kami</div>
+        <h2 class="section-title">Kontak <span class="text-gradient">MoonPaw</span></h2>
+        <p class="section-subtitle">
+          Ada pertanyaan, saran, atau ingin bergabung sebagai shelter partner?
+          Kami senang mendengar dari kamu!
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="reveal-left">
+          <a href="mailto:moonpawpet@gmail.com" class="contact-card" id="contact-email">
+            <div class="contact-card-icon cc-gold">📧</div>
+            <div>
+              <div class="contact-card-label">Email</div>
+              <div class="contact-card-value">moonpawpet@gmail.com</div>
+            </div>
+          </a>
+
+          <a href="https://wa.me/000000000" class="contact-card" id="contact-wa">
+            <div class="contact-card-icon cc-green">📱</div>
+            <div>
+              <div class="contact-card-label">WhatsApp</div>
+              <div class="contact-card-value">000-0000-0000</div>
+            </div>
+          </a>
+
+          <a href="https://instagram.com/moonpaw" class="contact-card" id="contact-ig">
+            <div class="contact-card-icon cc-pink">📷</div>
+            <div>
+              <div class="contact-card-label">Instagram</div>
+              <div class="contact-card-value">@moonpaw</div>
+            </div>
+          </a>
+
+          <a href="https://facebook.com/MoonPaw" class="contact-card" id="contact-fb">
+            <div class="contact-card-icon cc-blue">📘</div>
+            <div>
+              <div class="contact-card-label">Facebook</div>
+              <div class="contact-card-value">MoonPaw</div>
+            </div>
+          </a>
+
+          <div class="contact-card" id="contact-address" style="cursor:default">
+            <div class="contact-card-icon cc-indigo">📍</div>
+            <div>
+              <div class="contact-card-label">Alamat</div>
+              <div class="contact-card-value" style="font-size:0.82rem">Jl. MoonPaw Pet Center No. 10, Banjarmasin,
+                Kalimantan Selatan</div>
+            </div>
+          </div>
+
+          <!-- Map Placeholder -->
+          <div class="map-placeholder">
+            <span>🗺️</span>
+            <span>Google Maps – Banjarmasin, Kalimantan Selatan</span>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="reveal-right">
+          <div class="contact-form-card">
+            <h3 style="margin-bottom:8px;font-size:1.3rem">Kirim Pesan</h3>
+            <p style="color:var(--text-secondary);font-size:0.875rem;margin-bottom:28px">
+              Kami akan membalas dalam waktu 1×24 jam pada hari kerja.
+            </p>
+
+            <form id="contactForm" novalidate>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Nama Lengkap *</label>
+                  <input type="text" class="form-control" id="contact-name" placeholder="Amanda Putri" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-phone">No. HP</label>
+                  <input type="tel" class="form-control" id="contact-phone" placeholder="0812-3456-7890" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-email-field">Email *</label>
+                <input type="email" class="form-control" id="contact-email-field" placeholder="amanda@email.com"
+                  required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-subject">Subjek *</label>
+                <select class="form-control" id="contact-subject" required>
+                  <option value="" disabled selected>Pilih subjek pesan...</option>
+                  <option value="adopsi">Pertanyaan Adopsi</option>
+                  <option value="shelter">Daftar sebagai Shelter Partner</option>
+                  <option value="teknis">Masalah Teknis</option>
+                  <option value="saran">Saran & Feedback</option>
+                  <option value="lainnya">Lainnya</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Pesan *</label>
+                <textarea class="form-control" id="contact-message" placeholder="Tuliskan pesanmu di sini..."
+                  required></textarea>
+              </div>
+              <button type="submit" class="btn-gold w-100" id="contact-submit-btn" style="justify-content:center">
+                <i class="fas fa-paper-plane"></i> Kirim Pesan
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- FOOTER                                                     -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="#hero" class="navbar-logo" aria-label="MoonPaw Home" style="margin-bottom:16px;display:inline-flex">
+            <div class="logo-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M20 6C14.477 6 10 10.477 10 16C10 21.523 14.477 26 20 26C16.686 26 14 23.314 14 20C14 16.686 16.686 14 20 14C23.314 14 26 16.686 26 20C26 14.477 21.523 10 16 10"
+                  fill="#FACC15" />
+                <circle cx="20" cy="7" r="2" fill="#FACC15" opacity="0.6" />
+                <ellipse cx="16" cy="19" rx="3" ry="3.5" fill="#FACC15" opacity="0.9" />
+                <ellipse cx="12.5" cy="17" rx="1.5" ry="2" fill="#FACC15" opacity="0.7" />
+                <ellipse cx="19.5" cy="17" rx="1.5" ry="2" fill="#FACC15" opacity="0.7" />
+                <ellipse cx="11" cy="20.5" rx="1.3" ry="1.8" fill="#FACC15" opacity="0.7" />
+                <ellipse cx="21" cy="20.5" rx="1.3" ry="1.8" fill="#FACC15" opacity="0.7" />
+              </svg>
+            </div>
+            <span class="logo-text" style="color:white">Moon<span>Paw</span></span>
+          </a>
+          <p style="color:#cbd5e1;font-size:0.95rem;margin-bottom:20px">Find Your Perfect Companion.</p>
+          <div style="display:flex;flex-direction:column;gap:12px;color:#94a3b8;font-size:0.9rem">
+            <div style="display:flex;align-items:center;gap:10px"><i class="fas fa-envelope"
+                style="color:var(--moon-gold)"></i> moonpawpet@gmail.com</div>
+            <div style="display:flex;align-items:center;gap:10px"><i class="fas fa-phone-alt"
+                style="color:var(--moon-gold)"></i> 000000000</div>
+            <div style="display:flex;align-items:center;gap:10px"><i class="fab fa-instagram"
+                style="color:var(--moon-gold)"></i> @moonpaw</div>
+            <div style="display:flex;align-items:center;gap:10px"><i class="fab fa-facebook"
+                style="color:var(--moon-gold)"></i> MoonPaw</div>
+          </div>
+        </div>
+
+        <!-- Platform -->
+        <div class="footer-col">
+          <h4>Platform</h4>
+          <ul class="footer-links">
+            <li><a href="pets.html" id="footer-pets">Explore Pets</a></li>
+            <li><a href="register.html" id="footer-register">Daftar Adopter</a></li>
+            <li><a href="login.html" id="footer-login">Login</a></li>
+            <li><a href="dashboard.html" id="footer-dashboard">Dashboard</a></li>
+            <li><a href="wishlist.html" id="footer-wishlist">Wishlist</a></li>
+            <li><a href="blog.html" id="footer-blog">Blog</a></li>
+          </ul>
+        </div>
+
+        <!-- Shelter -->
+        <div class="footer-col">
+          <h4>Shelter</h4>
+          <ul class="footer-links">
+            <li><a href="#partners" id="footer-shelters">Daftar Shelter</a></li>
+            <li><a href="#contact" id="footer-join-shelter">Bergabung Shelter</a></li>
+            <li><a href="login.html" id="footer-shelter-login">Login Shelter</a></li>
+            <li><a href="javascript:alert('Panduan Shelter akan segera hadir!')" id="footer-shelter-guide">Panduan
+                Shelter</a></li>
+          </ul>
+        </div>
+
+        <!-- Bantuan -->
+        <div class="footer-col">
+          <h4>Bantuan</h4>
+          <ul class="footer-links">
+            <li><a href="#faq" id="footer-faq">FAQ</a></li>
+            <li><a href="#contact" id="footer-contact">Kontak</a></li>
+            <li><a href="privacy.html" id="footer-privacy">Privacy Policy</a></li>
+            <li><a href="terms.html" id="footer-terms">Terms & Conditions</a></li>
+            <li><a href="javascript:window.scrollTo(0,0)" id="footer-sitemap">Kembali ke Atas</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          Copyright © 2026 <span>MoonPaw</span>. All rights reserved. Made with ❤️ for every animal.
+        </div>
+        <div class="footer-bottom-links">
+          <a href="privacy.html" id="footer-privacy-bottom">Privacy Policy</a>
+          <a href="terms.html" id="footer-terms-bottom">Terms of Service</a>
+          <a href="sitemap.html" id="footer-sitemap-bottom">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- BACK TO TOP                                                -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <button id="backToTop" aria-label="Back to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- SCRIPTS                                                    -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- Floating Chat Button -->
+  <div style="position:fixed;bottom:30px;right:30px;z-index:999">
+    <button
+      style="background:var(--moon-gold);border:none;border-radius:50px;padding:12px 24px;font-family:var(--font-primary);font-weight:700;font-size:1rem;color:var(--midnight);box-shadow:0 10px 25px rgba(250,204,21,0.4);cursor:pointer;display:flex;align-items:center;gap:10px;transition:all 0.3s"
+      onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'"
+      onclick="alert('Chat support will be available soon!')">
+      <span style="font-size:1.2rem">🐾</span> Need Help?
+    </button>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

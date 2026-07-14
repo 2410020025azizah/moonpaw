@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Pet Match – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+</head>
+<body>
+<div class="user-layout">
+  <div id="sidebarContainer"></div>
+  <div class="main-content">
+    <header class="top-header">
+      <div class="top-header-left">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div><div class="page-title">Smart Pet Match</div>
+        <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span class="sep">/</span><span class="current">Smart Match</span></div></div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <a href="notifications.html" class="header-icon-btn"><i class="fas fa-bell"></i><span class="header-notif-badge">4</span></a>
+        <a href="profile.html" class="header-avatar">A</a>
+      </div>
+    </header>
+    <main class="page-content">
+      <!-- Quiz container -->
+      <div id="quizSection">
+        <div style="max-width:720px;margin:0 auto">
+          <div style="text-align:center;margin-bottom:40px">
+            <div style="font-size:3rem;margin-bottom:12px">🤖</div>
+            <h1 style="font-size:1.8rem;font-weight:800;margin-bottom:8px">Smart Pet Match</h1>
+            <p style="color:var(--text-secondary)">Jawab 7 pertanyaan berikut dan kami akan mencarikan hewan yang paling cocok untukmu!</p>
+          </div>
+
+          <!-- Progress -->
+          <div style="margin-bottom:32px">
+            <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text-muted);margin-bottom:8px">
+              <span id="questionLabel">Pertanyaan 1 dari 7</span>
+              <span id="progressPct">14%</span>
+            </div>
+            <div style="height:8px;background:var(--border-color);border-radius:4px;overflow:hidden">
+              <div id="progressBar" style="height:100%;width:14%;background:linear-gradient(90deg,var(--moon-gold),#F97316);border-radius:4px;transition:width 0.4s ease"></div>
+            </div>
+          </div>
+
+          <!-- Questions -->
+          <div class="card">
+            <div class="card-body" style="padding:36px">
+              <div id="questionContainer">
+                <!-- Rendered by JS -->
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-top:32px">
+                <button class="btn-outline-gold" id="prevBtn" style="visibility:hidden" onclick="changeQuestion(-1)"><i class="fas fa-chevron-left"></i> Sebelumnya</button>
+                <button class="btn-gold" id="nextBtn" onclick="changeQuestion(1)">Selanjutnya <i class="fas fa-chevron-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results (hidden initially) -->
+      <div id="resultsSection" style="display:none">
+        <div style="text-align:center;margin-bottom:24px">
+          <div style="font-size:3rem;margin-bottom:12px;animation:bounce 2s infinite">🎉</div>
+          <h2 style="font-size:2.2rem;font-weight:900;margin-bottom:8px;color:var(--text-primary);font-family:var(--font-heading)">Congratulations!</h2>
+          <p style="color:var(--text-secondary);font-size:1.1rem;margin-bottom:10px">We Found</p>
+        </div>
+        
+        <div style="max-width:400px;margin:0 auto 32px">
+          <div style="background:linear-gradient(135deg,var(--midnight),#1a2744);border-radius:var(--radius-xl);padding:30px;color:white;text-align:center;position:relative;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.15)">
+            <div style="position:absolute;top:-50px;right:-50px;width:150px;height:150px;background:radial-gradient(circle,rgba(250,204,21,0.2),transparent);border-radius:50%"></div>
+            <div style="width:140px;height:140px;border-radius:50%;overflow:hidden;border:4px solid var(--moon-gold);margin:0 auto 20px;box-shadow:0 0 20px rgba(250,204,21,0.3)">
+              <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=300" alt="Bella" style="width:100%;height:100%;object-fit:cover" />
+            </div>
+            <h3 style="font-size:2rem;font-weight:800;margin-bottom:5px">🐶 Bella</h3>
+            <p style="color:#cbd5e1;font-size:1.1rem;margin-bottom:16px">Golden Retriever</p>
+            <div style="display:inline-block;background:rgba(34,197,94,0.15);color:#4ade80;font-size:1rem;padding:6px 16px;border-radius:20px;font-weight:700;border:1px solid rgba(34,197,94,0.3);margin-bottom:24px">
+              98% Match ✨
+            </div>
+            <a href="pet-detail.html" class="btn-gold" style="width:100%;justify-content:center;padding:12px;font-size:1rem;text-decoration:none">Adopt Bella Now</a>
+          </div>
+        </div>
+        <div style="text-align:center">
+          <button class="btn-outline-gold" id="retakeBtn" onclick="resetQuiz()"><i class="fas fa-redo"></i> Ulangi Kuesioner</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="assets/js/user.js"></script>
+<script>
+const questions = [
+  { q:'Saya tinggal di...', opts:['Apartemen','Rumah'] },
+  { q:'Saya punya waktu...', opts:['1 Jam','3 Jam','Full Time'] },
+  { q:'Saya menyukai hewan...', opts:['Anjing 🐕','Kucing 🐈'] }
+];
+let current = 0; const answers = [];
+function render() {
+  const q = questions[current];
+  document.getElementById('questionLabel').textContent = `Pertanyaan ${current+1} dari ${questions.length}`;
+  const pct = Math.round(((current+1)/questions.length)*100);
+  document.getElementById('progressPct').textContent = pct+'%';
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('prevBtn').style.visibility = current > 0 ? 'visible' : 'hidden';
+  document.getElementById('nextBtn').textContent = current === questions.length-1 ? '✨ Lihat Hasil' : 'Selanjutnya ›';
+  document.getElementById('questionContainer').innerHTML = `
+    <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:24px">${q.q}</h3>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      ${q.opts.map((o,i)=>`<label style="display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:var(--radius-sm);border:2px solid ${answers[current]===i?'var(--moon-gold)':'var(--border-color)'};background:${answers[current]===i?'rgba(250,204,21,0.06)':'var(--bg-secondary)'};cursor:pointer;transition:all 0.2s;font-size:0.9rem;font-weight:500" onclick="selectAnswer(${i})"><input type="radio" name="q" value="${i}" ${answers[current]===i?'checked':''} style="accent-color:var(--moon-gold)"> ${o}</label>`).join('')}
+    </div>`;
+}
+function selectAnswer(i) { answers[current] = i; render(); }
+function changeQuestion(dir) {
+  if (dir === 1) {
+    if (answers[current] === undefined) { showUserToast('⚠️','Pilih salah satu jawaban!'); return; }
+    if (current === questions.length-1) { showResults(); return; }
+    current++;
+  } else { current = Math.max(0, current-1); }
+  render();
+}
+function showResults() { document.getElementById('quizSection').style.display='none'; document.getElementById('resultsSection').style.display='block'; }
+function resetQuiz() { current=0; answers.length=0; document.getElementById('resultsSection').style.display='none'; document.getElementById('quizSection').style.display='block'; render(); }
+document.addEventListener('DOMContentLoaded',()=>{ document.getElementById('sidebarContainer').innerHTML=buildUserSidebar('smart-match'); render(); });
+</script>
+</body>
+</html>

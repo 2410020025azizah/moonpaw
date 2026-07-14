@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profil Saya – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+</head>
+<body>
+<div class="user-layout">
+  <div id="sidebarContainer"></div>
+  <div class="main-content">
+    <header class="top-header">
+      <div class="top-header-left">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div><div class="page-title">Profil Saya</div>
+        <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span class="sep">/</span><span class="current">Profil</span></div></div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <a href="notifications.html" class="header-icon-btn"><i class="fas fa-bell"></i><span class="header-notif-badge">4</span></a>
+        <a href="profile.html" class="header-avatar">A</a>
+      </div>
+    </header>
+    <main class="page-content">
+      <div class="profile-header">
+        <div class="profile-avatar-large">A</div>
+        <div class="profile-info">
+          <h1 class="profile-name">Amanda Putri</h1>
+          <p class="profile-email">amanda@email.com · 0812-3456-7890</p>
+          <div class="profile-badges">
+            <span class="badge-pill badge-gold">🥉 First Adoption</span>
+            <span class="badge-pill badge-blue">✨ Adopter Terverifikasi</span>
+            <span class="badge-pill badge-green">🌿 Love Animal</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-sidebar" style="align-items:start">
+        <!-- Edit Profile -->
+        <div class="card">
+          <div class="card-header"><div class="card-title">👤 Sunting Profil</div></div>
+          <div class="card-body">
+            <form id="profileForm">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="form-group">
+                  <label class="form-label">Nama Depan *</label>
+                  <input type="text" class="form-control" value="Amanda" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Nama Belakang *</label>
+                  <input type="text" class="form-control" value="Putri" required />
+                </div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="form-group">
+                  <label class="form-label">Email *</label>
+                  <input type="email" class="form-control" value="amanda@email.com" required readonly style="background:var(--bg-primary);cursor:not-allowed;" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label">No. HP *</label>
+                  <input type="tel" class="form-control" value="0812-3456-7890" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Alamat Lengkap *</label>
+                <textarea class="form-control" rows="3" required>Jl. MoonPaw Pet Center No. 10, Banjarmasin, Kalimantan Selatan</textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Kota *</label>
+                <select class="form-control">
+                  <option selected>Banjarmasin</option>
+                  <option>Banjarbaru</option>
+                  <option>Samarinda</option>
+                  <option>Balikpapan</option>
+                </select>
+              </div>
+              <button type="submit" class="btn-gold" id="saveProfileBtn"><i class="fas fa-save"></i> Simpan Perubahan</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Reward & Point -->
+        <div>
+          <div class="card" style="margin-bottom:20px">
+            <div class="card-header"><div class="card-title">🎁 Poin & Reward</div></div>
+            <div class="card-body">
+              <div style="text-align:center;padding:16px;background:rgba(250,204,21,0.06);border:1px solid rgba(250,204,21,0.2);border-radius:var(--radius-lg);margin-bottom:20px">
+                <div style="font-size:0.8rem;color:var(--text-secondary);margin-bottom:4px">Total Poin Kamu</div>
+                <div style="font-size:2.2rem;font-weight:900;color:var(--moon-gold);font-family:var(--font-heading)">250</div>
+                <div style="font-size:0.75rem;color:var(--text-muted);margin-top:2px">Setara Voucher Grooming Rp25.000</div>
+              </div>
+              <h4 style="font-size:0.875rem;font-weight:700;margin-bottom:12px">Tukarkan Poin</h4>
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:var(--bg-secondary);border-radius:var(--radius-sm);border:1px solid var(--border-color)">
+                  <div>
+                    <div style="font-weight:700;font-size:0.85rem">Voucher Pet Shop Rp50k</div>
+                    <div style="font-size:0.72rem;color:var(--text-muted)">Dibutuhkan 500 Poin</div>
+                  </div>
+                  <button class="btn-gold" style="padding:6px 12px;font-size:0.72rem" disabled>Tukar</button>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:var(--bg-secondary);border-radius:var(--radius-sm);border:1px solid var(--border-color)">
+                  <div>
+                    <div style="font-weight:700;font-size:0.85rem">Voucher Grooming Rp25k</div>
+                    <div style="font-size:0.72rem;color:var(--text-muted)">Dibutuhkan 250 Poin</div>
+                  </div>
+                  <button class="btn-gold" style="padding:6px 12px;font-size:0.72rem" onclick="redeemVoucher()">Tukar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="assets/js/user.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('sidebarContainer').innerHTML=buildUserSidebar('profile');
+  
+  document.getElementById('profileForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('saveProfileBtn');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menyimpan...';
+    btn.disabled = true;
+    setTimeout(() => {
+      showUserToast('✅', 'Profil berhasil diperbarui!');
+      btn.innerHTML = '<i class="fas fa-save"></i> Simpan Perubahan';
+      btn.disabled = false;
+    }, 1200);
+  });
+});
+function redeemVoucher() {
+  showUserToast('🎁', 'Menukarkan voucher...');
+  setTimeout(() => {
+    alert('Voucher Grooming Rp25.000 Berhasil Ditukarkan!\nKode Voucher: MP-GRM-889X\n\nTunjukkan kode ini ke merchant partner terdekat.');
+  }, 1000);
+}
+</script>
+</body>
+</html>

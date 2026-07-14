@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/user.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="user-layout">
+  <!-- Admin Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="../index.html" class="sidebar-logo">
+      <div class="logo-icon" style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0F172A,#1E293B);display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px rgba(250,204,21,0.2)">
+        <svg viewBox="0 0 32 32" fill="none" width="22" height="22">
+          <path d="M20 6C14.477 6 10 10.477 10 16C10 21.523 14.477 26 20 26C16.686 26 14 23.314 14 20C14 16.686 16.686 14 20 14C23.314 14 26 16.686 26 20C26 14.477 21.523 10 16 10" fill="#FACC15"/>
+          <circle cx="20" cy="7" r="2" fill="#FACC15" opacity="0.6"/>
+          <ellipse cx="16" cy="19" rx="3" ry="3.5" fill="#FACC15" opacity="0.9"/>
+        </svg>
+      </div>
+      <span class="logo-text">Moon<span>Paw</span></span>
+    </a>
+    <div class="sidebar-user">
+      <div class="sidebar-avatar" style="background:var(--moon-gold)">A</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name">Admin MoonPaw</div>
+        <div class="sidebar-user-role"><span class="role-dot" style="background:#EF4444"></span> Administrator</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Laporan & Analitik</div>
+      <a href="dashboard.html" class="active"><span class="nav-icon">📊</span> Dashboard</a>
+      <div class="sidebar-section-label">Manajemen Data</div>
+      <a href="users.html"><span class="nav-icon">👥</span> Users</a>
+      <a href="pets.html"><span class="nav-icon">🐾</span> Hewan</a>
+      <a href="shelters.html"><span class="nav-icon">🏠</span> Shelter</a>
+      <a href="banners.html"><span class="nav-icon">🖼️</span> Banners</a>
+      <a href="artikel.html"><span class="nav-icon">📚</span> Artikel</a>
+      <a href="faq.html"><span class="nav-icon">❓</span> FAQ</a>
+      <a href="adoptions.html"><span class="nav-icon">📋</span> Adopsi</a>
+      <a href="visits.html"><span class="nav-icon">📅</span> Jadwal</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="../index.html"><span class="nav-icon">🌙</span> Beranda</a>
+      <a href="../login.html" style="color:#EF4444!important"><span class="nav-icon">🚪</span> Keluar</a>
+    </div>
+  </div>
+
+  <div class="main-content" style="margin-left:260px">
+    <header class="top-header">
+      <div class="top-header-left">
+        <div>
+          <div class="page-title">Admin Dashboard Analytics</div>
+          <div class="breadcrumb"><a href="#">Admin</a><span class="sep">/</span><span class="current">Dashboard</span></div>
+        </div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <button class="header-icon-btn" onclick="exportData('PDF')" title="Export PDF"><i class="fas fa-file-pdf" style="color:#EF4444"></i></button>
+        <button class="header-icon-btn" onclick="exportData('Excel')" title="Export Excel"><i class="fas fa-file-excel" style="color:#22C55E"></i></button>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <!-- Stats Summary -->
+      <div class="stats-row">
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dsi-blue">📋</div>
+          <div class="dash-stat-info">
+            <div class="dash-stat-label">Total Pengajuan</div>
+            <div class="dash-stat-value">1,540</div>
+            <div class="dash-stat-sub">+12% bulan ini</div>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dsi-green">✓</div>
+          <div class="dash-stat-info">
+            <div class="dash-stat-label">Adopsi Berhasil</div>
+            <div class="dash-stat-value">1,248</div>
+            <div class="dash-stat-sub" style="color:#22C55E">81% Success Rate</div>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dsi-gold">🐾</div>
+          <div class="dash-stat-info">
+            <div class="dash-stat-label">Hewan Terdaftar</div>
+            <div class="dash-stat-value">2,504</div>
+            <div class="dash-stat-sub">35 Partner Shelter</div>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dsi-red">⚠️</div>
+          <div class="dash-stat-info">
+            <div class="dash-stat-label">Menunggu Verifikasi</div>
+            <div class="dash-stat-value">42</div>
+            <div class="dash-stat-sub" style="color:#EF4444">Action Required</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="grid-2" style="margin-bottom:24px">
+        <div class="card">
+          <div class="card-header"><div class="card-title">📈 Tren Adopsi (Per Bulan)</div></div>
+          <div class="card-body">
+            <canvas id="adoptionChart" height="200"></canvas>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><div class="card-title">🐈 Kategori Terpopuler</div></div>
+          <div class="card-body">
+            <canvas id="categoryChart" height="200"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Submissions Table -->
+      <div class="card">
+        <div class="card-header"><div class="card-title">📋 Pengajuan Adopsi Terbaru</div></div>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Adopter</th>
+                <th>Hewan</th>
+                <th>Shelter</th>
+                <th>Tanggal</th>
+                <th>Status</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Amanda Putri</strong></td>
+                <td>Bella (Golden Retriever)</td>
+                <td>Happy Paws Shelter</td>
+                <td>5 Juli 2026</td>
+                <td><span class="status-badge approved">Approved</span></td>
+                <td><button class="btn-gold" style="padding:6px 12px;font-size:0.75rem" onclick="alert('Detail pengajuan Amanda Putri')">Detail</button></td>
+              </tr>
+              <tr>
+                <td><strong>Rizky Pratama</strong></td>
+                <td>Mochi (British Shorthair)</td>
+                <td>Love Animal House</td>
+                <td>1 Juli 2026</td>
+                <td><span class="status-badge pending">Pending</span></td>
+                <td><button class="btn-gold" style="padding:6px 12px;font-size:0.75rem" onclick="alert('Detail pengajuan Rizky Pratama')">Detail</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Recent Activity Feed -->
+      <div class="card" style="margin-top:24px">
+        <div class="card-header">
+          <div class="card-title">⚡ Recent Activity</div>
+          <span style="font-size:0.78rem;color:var(--text-muted)" id="activity-time-label">Hari ini</span>
+        </div>
+        <div class="card-body" style="padding:0">
+          <div class="adoption-timeline" style="padding:20px 24px" id="activityFeed">
+            <div class="timeline-step done">
+              <div class="timeline-dot"><i class="fas fa-paw"></i></div>
+              <div class="timeline-body">
+                <div class="timeline-title">Bella Diadopsi ✅</div>
+                <div class="timeline-desc">Amanda Putri berhasil menyelesaikan adopsi Golden Retriever</div>
+                <div class="timeline-date">08:00 – Happy Paws Shelter</div>
+              </div>
+            </div>
+            <div class="timeline-step done">
+              <div class="timeline-dot"><i class="fas fa-user-plus"></i></div>
+              <div class="timeline-body">
+                <div class="timeline-title">Pengguna Baru 🎉</div>
+                <div class="timeline-desc">Rizky Pratama mendaftar sebagai adopter baru</div>
+                <div class="timeline-date">08:15 – User Registration</div>
+              </div>
+            </div>
+            <div class="timeline-step done">
+              <div class="timeline-dot"><i class="fas fa-heart"></i></div>
+              <div class="timeline-body">
+                <div class="timeline-title">Donasi Diterima 💰</div>
+                <div class="timeline-desc">Donasi sebesar Rp 250.000 diterima dari Siti Rahayu</div>
+                <div class="timeline-date">08:30 – Donation Module</div>
+              </div>
+            </div>
+            <div class="timeline-step current">
+              <div class="timeline-dot"><i class="fas fa-book"></i></div>
+              <div class="timeline-body">
+                <div class="timeline-title">Artikel Dipublikasikan 📰</div>
+                <div class="timeline-desc">"Cara Merawat Kucing yang Baru Diadopsi" telah tayang</div>
+                <div class="timeline-date">09:00 – Blog Admin</div>
+              </div>
+            </div>
+            <div class="timeline-step">
+              <div class="timeline-dot"><i class="fas fa-calendar-check"></i></div>
+              <div class="timeline-body">
+                <div class="timeline-title">Jadwal Kunjungan Baru 📅</div>
+                <div class="timeline-desc">Kunjungan untuk Mochi dijadwalkan oleh Rizky Pratama</div>
+                <div class="timeline-date">09:45 – Visit Schedule</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Theme management for admin
+  const theme = localStorage.getItem('moonpaw-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+  const updateIcon = (t) => {
+    document.querySelectorAll('[data-dark-toggle] i').forEach(i => {
+      i.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+  };
+  updateIcon(theme);
+  
+  document.querySelectorAll('[data-dark-toggle]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('moonpaw-theme', next);
+      updateIcon(next);
+    });
+  });
+
+  // Adoption Chart (Line Chart)
+  const ctxAdoption = document.getElementById('adoptionChart');
+  if (ctxAdoption) {
+    new Chart(ctxAdoption.getContext('2d'), {
+      type: 'line',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        datasets: [{
+          label: 'Adopsi Berhasil',
+          data: [65, 78, 92, 110, 105, 130, 145],
+          borderColor: '#FACC15',
+          backgroundColor: 'rgba(250, 204, 21, 0.1)',
+          tension: 0.4,
+          fill: true
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+  }
+
+  // Category Chart (Doughnut Chart)
+  const ctxCategory = document.getElementById('categoryChart');
+  if (ctxCategory) {
+    new Chart(ctxCategory.getContext('2d'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Kucing', 'Anjing', 'Kelinci', 'Lainnya'],
+        datasets: [{
+          data: [45, 35, 15, 5],
+          backgroundColor: ['#FACC15', '#3B82F6', '#10B981', '#EF4444']
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false }
+    });
+  }
+});
+
+function exportData(type) {
+  alert(`Mengekspor data laporan analytics dalam format ${type}...`);
+}
+</script>
+</body>
+</html>

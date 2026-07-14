@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manajemen Banners – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/user.css" />
+  <style>
+    .modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:999; align-items:center; justify-content:center; }
+    .modal-overlay.show { display:flex; }
+    .modal-box { background:var(--bg-secondary); border-radius:16px; padding:32px; width:100%; max-width:500px; box-shadow:0 20px 60px rgba(0,0,0,0.3); position:relative; }
+    .modal-box h3 { margin-bottom:20px; color:var(--text-primary); font-size:1.2rem; }
+    .modal-form-group { margin-bottom:16px; }
+    .modal-form-group label { display:block; margin-bottom:6px; font-size:0.85rem; font-weight:600; color:var(--text-secondary); }
+    .modal-form-group input, .modal-form-group select, .modal-form-group textarea { width:100%; padding:10px 14px; border:1px solid var(--border-color); border-radius:8px; background:var(--bg-primary); color:var(--text-primary); font-size:0.9rem; outline:none; transition:border-color 0.2s; }
+    .modal-form-group input:focus, .modal-form-group select:focus { border-color: var(--moon-gold); }
+    .modal-actions { display:flex; gap:12px; justify-content:flex-end; margin-top:20px; }
+    .btn-cancel { padding:10px 20px; border:1px solid var(--border-color); border-radius:8px; background:transparent; color:var(--text-secondary); cursor:pointer; font-weight:500; }
+    .btn-cancel:hover { background:var(--bg-primary); }
+    .modal-close { position:absolute; top:16px; right:16px; background:none; border:none; font-size:1.2rem; color:var(--text-muted); cursor:pointer; }
+    .modal-close:hover { color:var(--text-primary); }
+    .confirm-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:1000; align-items:center; justify-content:center; }
+    .confirm-overlay.show { display:flex; }
+    .confirm-box { background:var(--bg-secondary); border-radius:16px; padding:32px; width:100%; max-width:380px; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.3); }
+    .confirm-box .icon { font-size:3rem; margin-bottom:16px; }
+    .confirm-box h4 { color:var(--text-primary); margin-bottom:8px; }
+    .confirm-box p { color:var(--text-secondary); font-size:0.9rem; margin-bottom:24px; }
+    .confirm-actions { display:flex; gap:12px; justify-content:center; }
+    .btn-danger { padding:10px 24px; background:#EF4444; color:#fff; border:none; border-radius:8px; cursor:pointer; font-weight:600; }
+    .btn-danger:hover { background:#DC2626; }
+  </style>
+</head>
+<body>
+<div class="user-layout">
+  <!-- Admin Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="../index.html" class="sidebar-logo">
+      <div class="logo-icon" style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0F172A,#1E293B);display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px rgba(250,204,21,0.2)">
+        <svg viewBox="0 0 32 32" fill="none" width="22" height="22">
+          <path d="M20 6C14.477 6 10 10.477 10 16C10 21.523 14.477 26 20 26C16.686 26 14 23.314 14 20C14 16.686 16.686 14 20 14C23.314 14 26 16.686 26 20C26 14.477 21.523 10 16 10" fill="#FACC15"/>
+          <circle cx="20" cy="7" r="2" fill="#FACC15" opacity="0.6"/>
+          <ellipse cx="16" cy="19" rx="3" ry="3.5" fill="#FACC15" opacity="0.9"/>
+        </svg>
+      </div>
+      <span class="logo-text">Moon<span>Paw</span></span>
+    </a>
+    <div class="sidebar-user">
+      <div class="sidebar-avatar" style="background:var(--moon-gold)">A</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name">Admin MoonPaw</div>
+        <div class="sidebar-user-role"><span class="role-dot" style="background:#EF4444"></span> Administrator</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Laporan &amp; Analitik</div>
+      <a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <div class="sidebar-section-label">Manajemen Data</div>
+      <a href="users.html"><span class="nav-icon">👥</span> Users</a>
+      <a href="pets.html"><span class="nav-icon">🐾</span> Hewan</a>
+      <a href="shelters.html"><span class="nav-icon">🏠</span> Shelter</a>
+      <a href="banners.html" class="active"><span class="nav-icon">🖼️</span> Banners</a>
+      <a href="artikel.html"><span class="nav-icon">📚</span> Artikel</a>
+      <a href="faq.html"><span class="nav-icon">❓</span> FAQ</a>
+      <a href="adoptions.html"><span class="nav-icon">📋</span> Adopsi</a>
+      <a href="visits.html"><span class="nav-icon">📅</span> Jadwal</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="../index.html"><span class="nav-icon">🌙</span> Beranda</a>
+      <a href="../login.html" style="color:#EF4444!important"><span class="nav-icon">🚪</span> Keluar</a>
+    </div>
+  </div>
+
+  <div class="main-content" style="margin-left:260px">
+    <header class="top-header">
+      <div class="top-header-left">
+        <div>
+          <div class="page-title">Manajemen Banners</div>
+          <div class="breadcrumb"><a href="#">Admin</a><span class="sep">/</span><span class="current">Banners</span></div>
+        </div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <button class="header-icon-btn" onclick="exportData('PDF')" title="Export PDF"><i class="fas fa-file-pdf" style="color:#EF4444"></i></button>
+        <button class="header-icon-btn" onclick="exportData('Excel')" title="Export Excel"><i class="fas fa-file-excel" style="color:#22C55E"></i></button>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div style="display:flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+        <h2 style="color: var(--text-primary); font-size: 1.5rem;">Data Banners</h2>
+        <button class="btn-gold" onclick="openAddModal()"><i class="fas fa-plus"></i> Tambah Banner</button>
+      </div>
+
+      <!-- Filter/Search -->
+      <div style="display:flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+        <div class="input-icon-wrap" style="flex:1; min-width: 250px;">
+          <i class="fas fa-search input-icon"></i>
+          <input type="text" class="form-control" id="searchBanner" placeholder="Cari Banner..." style="margin-bottom:0;" oninput="filterTable()" autocomplete="off" />
+        </div>
+        <select class="form-control" id="filterStatus" style="width:auto; margin-bottom:0;" onchange="filterTable()">
+          <option value="">Filter Status</option>
+          <option value="aktif">Aktif</option>
+          <option value="nonaktif">Nonaktif</option>
+        </select>
+        <button class="btn-outline-gold"><i class="fas fa-filter"></i> Filter</button>
+      </div>
+
+      <!-- Data Table -->
+      <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 700px;" id="bannersTable">
+          <thead>
+            <tr style="background: rgba(250,204,21,0.05); border-bottom: 2px solid var(--border-color);">
+              <th style="padding: 16px; text-align: left; color: var(--text-secondary); font-weight: 600;">ID</th>
+              <th style="padding: 16px; text-align: left; color: var(--text-secondary); font-weight: 600;">Gambar Banner</th>
+              <th style="padding: 16px; text-align: left; color: var(--text-secondary); font-weight: 600;">Judul / Deskripsi</th>
+              <th style="padding: 16px; text-align: left; color: var(--text-secondary); font-weight: 600;">Status</th>
+              <th style="padding: 16px; text-align: center; color: var(--text-secondary); font-weight: 600;">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="bannersBody">
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 16px; color: var(--text-primary);">#B001</td>
+              <td style="padding: 16px;"><div style="width:100px;height:40px;background:#e2e8f0;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#64748b;">Banner 1</div></td>
+              <td style="padding: 16px; color: var(--text-primary); font-weight:500;">Promo Adopsi Gratis<br><span style="font-size:0.8rem; color:var(--text-secondary); font-weight:normal;">Berlaku hingga 30 Juli 2026</span></td>
+              <td style="padding: 16px;"><span class="pet-status available" style="position:static; display:inline-block; font-size:0.75rem;">Aktif</span></td>
+              <td style="padding: 16px; text-align: center;">
+                <button class="header-icon-btn" onclick="openEditModal('#B001','Promo Adopsi Gratis','Berlaku hingga 30 Juli 2026','aktif')" style="padding:6px;color:#3B82F6;background:rgba(59,130,246,0.1);border-radius:4px;margin-right:4px;" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="header-icon-btn" onclick="openDeleteConfirm('#B001','Promo Adopsi Gratis', this)" style="padding:6px;color:#EF4444;background:rgba(239,68,68,0.1);border-radius:4px;" title="Hapus"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 16px; color: var(--text-primary);">#B002</td>
+              <td style="padding: 16px;"><div style="width:100px;height:40px;background:#e2e8f0;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#64748b;">Banner 2</div></td>
+              <td style="padding: 16px; color: var(--text-primary); font-weight:500;">Event Vaksinasi Massal<br><span style="font-size:0.8rem; color:var(--text-secondary); font-weight:normal;">Jadwal: 15 Agustus 2026</span></td>
+              <td style="padding: 16px;"><span class="pet-status pending" style="position:static;display:inline-block;font-size:0.75rem;background:rgba(239,68,68,0.1);color:#EF4444;">Nonaktif</span></td>
+              <td style="padding: 16px; text-align: center;">
+                <button class="header-icon-btn" onclick="openEditModal('#B002','Event Vaksinasi Massal','Jadwal: 15 Agustus 2026','nonaktif')" style="padding:6px;color:#3B82F6;background:rgba(59,130,246,0.1);border-radius:4px;margin-right:4px;" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="header-icon-btn" onclick="openDeleteConfirm('#B002','Event Vaksinasi Massal', this)" style="padding:6px;color:#EF4444;background:rgba(239,68,68,0.1);border-radius:4px;" title="Hapus"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Modal Tambah Banner -->
+<div class="modal-overlay" id="addModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('addModal')"><i class="fas fa-times"></i></button>
+    <h3><i class="fas fa-plus" style="color:var(--moon-gold);margin-right:8px;"></i> Tambah Banner Baru</h3>
+    <div class="modal-form-group">
+      <label>Judul Banner</label>
+      <input type="text" id="add-judul" placeholder="Contoh: Promo Adopsi Gratis" autocomplete="off" />
+    </div>
+    <div class="modal-form-group">
+      <label>Deskripsi / Keterangan</label>
+      <input type="text" id="add-deskripsi" placeholder="Contoh: Berlaku hingga 30 Juli 2026" autocomplete="off" />
+    </div>
+    <div class="modal-form-group">
+      <label>URL Gambar (opsional)</label>
+      <input type="text" id="add-gambar" placeholder="https://..." autocomplete="off" />
+    </div>
+    <div class="modal-form-group">
+      <label>Status</label>
+      <select id="add-status">
+        <option value="aktif">Aktif</option>
+        <option value="nonaktif">Nonaktif</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal('addModal')">Batal</button>
+      <button class="btn-gold" onclick="saveAdd()"><i class="fas fa-save"></i> Simpan</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Edit Banner -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('editModal')"><i class="fas fa-times"></i></button>
+    <h3><i class="fas fa-edit" style="color:var(--moon-gold);margin-right:8px;"></i> Edit Banner <span id="editModalId" style="color:var(--moon-gold);"></span></h3>
+    <div class="modal-form-group">
+      <label>Judul Banner</label>
+      <input type="text" id="edit-judul" autocomplete="off" />
+    </div>
+    <div class="modal-form-group">
+      <label>Deskripsi / Keterangan</label>
+      <input type="text" id="edit-deskripsi" autocomplete="off" />
+    </div>
+    <div class="modal-form-group">
+      <label>Status</label>
+      <select id="edit-status">
+        <option value="aktif">Aktif</option>
+        <option value="nonaktif">Nonaktif</option>
+      </select>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal('editModal')">Batal</button>
+      <button class="btn-gold" onclick="saveEdit()"><i class="fas fa-save"></i> Simpan</button>
+    </div>
+  </div>
+</div>
+
+<!-- Confirm Delete -->
+<div class="confirm-overlay" id="confirmDelete">
+  <div class="confirm-box">
+    <div class="icon">🗑️</div>
+    <h4>Hapus Banner?</h4>
+    <p>Apakah Anda yakin ingin menghapus banner <strong id="deleteItemName"></strong>? Tindakan ini tidak bisa dibatalkan.</p>
+    <div class="confirm-actions">
+      <button class="btn-cancel" onclick="closeModal('confirmDelete')">Batal</button>
+      <button class="btn-danger" onclick="confirmDeleteAction()"><i class="fas fa-trash"></i> Hapus</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let deleteTarget = null;
+
+document.addEventListener('DOMContentLoaded', () => {
+  const theme = localStorage.getItem('moonpaw-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+  const updateIcon = (t) => {
+    document.querySelectorAll('[data-dark-toggle] i').forEach(i => {
+      i.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    });
+  };
+  updateIcon(theme);
+  document.querySelectorAll('[data-dark-toggle]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('moonpaw-theme', next);
+      updateIcon(next);
+    });
+  });
+});
+
+function openAddModal() {
+  document.getElementById('add-judul').value = '';
+  document.getElementById('add-deskripsi').value = '';
+  document.getElementById('add-gambar').value = '';
+  document.getElementById('add-status').value = 'aktif';
+  document.getElementById('addModal').classList.add('show');
+}
+
+function openEditModal(id, judul, deskripsi, status) {
+  document.getElementById('editModalId').textContent = id;
+  document.getElementById('edit-judul').value = judul;
+  document.getElementById('edit-deskripsi').value = deskripsi;
+  document.getElementById('edit-status').value = status;
+  document.getElementById('editModal').classList.add('show');
+}
+
+function openDeleteConfirm(id, name, btn) {
+  document.getElementById('deleteItemName').textContent = name + ' (' + id + ')';
+  deleteTarget = btn ? btn.closest('tr') : null;
+  document.getElementById('confirmDelete').classList.add('show');
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('show');
+}
+
+function saveAdd() {
+  const judul = document.getElementById('add-judul').value.trim();
+  const deskripsi = document.getElementById('add-deskripsi').value.trim();
+  const status = document.getElementById('add-status').value;
+  if (!judul) { alert('Judul banner tidak boleh kosong!'); return; }
+
+  const tbody = document.getElementById('bannersBody');
+  const rows = tbody.querySelectorAll('tr');
+  const newId = '#B' + String(rows.length + 1).padStart(3, '0');
+  const statusBadge = status === 'aktif'
+    ? '<span class="pet-status available" style="position:static;display:inline-block;font-size:0.75rem;">Aktif</span>'
+    : '<span class="pet-status pending" style="position:static;display:inline-block;font-size:0.75rem;background:rgba(239,68,68,0.1);color:#EF4444;">Nonaktif</span>';
+
+  const row = document.createElement('tr');
+  row.style.borderBottom = '1px solid var(--border-color)';
+  row.innerHTML = `
+    <td style="padding:16px;color:var(--text-primary);">${newId}</td>
+    <td style="padding:16px;"><div style="width:100px;height:40px;background:#e2e8f0;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:#64748b;">Banner</div></td>
+    <td style="padding:16px;color:var(--text-primary);font-weight:500;">${judul}<br><span style="font-size:0.8rem;color:var(--text-secondary);font-weight:normal;">${deskripsi}</span></td>
+    <td style="padding:16px;">${statusBadge}</td>
+    <td style="padding:16px;text-align:center;">
+      <button class="header-icon-btn" onclick="openEditModal('${newId}','${judul}','${deskripsi}','${status}')" style="padding:6px;color:#3B82F6;background:rgba(59,130,246,0.1);border-radius:4px;margin-right:4px;" title="Edit"><i class="fas fa-edit"></i></button>
+      <button class="header-icon-btn" onclick="openDeleteConfirm('${newId}','${judul}', this)" style="padding:6px;color:#EF4444;background:rgba(239,68,68,0.1);border-radius:4px;" title="Hapus"><i class="fas fa-trash"></i></button>
+    </td>`;
+  tbody.appendChild(row);
+  closeModal('addModal');
+}
+
+function saveEdit() {
+  closeModal('editModal');
+  alert('✅ Data banner berhasil diperbarui!');
+}
+
+function confirmDeleteAction() {
+  if (deleteTarget) {
+    deleteTarget.remove();
+    deleteTarget = null;
+  }
+  closeModal('confirmDelete');
+}
+
+function filterTable() {
+  const q = document.getElementById('searchBanner').value.toLowerCase();
+  const st = document.getElementById('filterStatus').value.toLowerCase();
+  document.querySelectorAll('#bannersBody tr').forEach(row => {
+    const text = row.textContent.toLowerCase();
+    const statusCell = row.querySelector('td:nth-child(4)');
+    const statusText = statusCell ? statusCell.textContent.toLowerCase() : '';
+    const matchQ = text.includes(q);
+    const matchSt = !st || statusText.includes(st === 'aktif' ? 'aktif' : 'nonaktif');
+    row.style.display = (matchQ && matchSt) ? '' : 'none';
+  });
+}
+
+function exportData(type) {
+  alert(`Mengekspor data Banners dalam format ${type}...`);
+}
+</script>
+</body>
+</html>

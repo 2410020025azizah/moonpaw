@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manajemen Shelter – MoonPaw Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/user.css" />
+</head>
+<body>
+<div class="user-layout">
+  <!-- Admin Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="../index.html" class="sidebar-logo">
+      <div class="logo-icon" style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#0F172A,#1E293B);display:flex;align-items:center;justify-content:center;box-shadow:0 0 15px rgba(250,204,21,0.2)">
+        <svg viewBox="0 0 32 32" fill="none" width="22" height="22">
+          <path d="M20 6C14.477 6 10 10.477 10 16C10 21.523 14.477 26 20 26C16.686 26 14 23.314 14 20C14 16.686 16.686 14 20 14C23.314 14 26 16.686 26 20C26 14.477 21.523 10 16 10" fill="#FACC15"/>
+          <circle cx="20" cy="7" r="2" fill="#FACC15" opacity="0.6"/>
+          <ellipse cx="16" cy="19" rx="3" ry="3.5" fill="#FACC15" opacity="0.9"/>
+        </svg>
+      </div>
+      <span class="logo-text">Moon<span>Paw</span></span>
+    </a>
+    <div class="sidebar-user">
+      <div class="sidebar-avatar" style="background:var(--moon-gold)">A</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name">Admin MoonPaw</div>
+        <div class="sidebar-user-role"><span class="role-dot" style="background:#EF4444"></span> Administrator</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Laporan &amp; Analitik</div>
+      <a href="dashboard.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <div class="sidebar-section-label">Manajemen Data</div>
+      <a href="users.html"><span class="nav-icon">👥</span> Users</a>
+      <a href="pets.html"><span class="nav-icon">🐾</span> Hewan</a>
+      <a href="shelters.html" class="active"><span class="nav-icon">🏠</span> Shelter</a>
+      <a href="banners.html"><span class="nav-icon">🖼️</span> Banners</a>
+      <a href="artikel.html"><span class="nav-icon">📚</span> Artikel</a>
+      <a href="faq.html"><span class="nav-icon">❓</span> FAQ</a>
+      <a href="adoptions.html"><span class="nav-icon">📋</span> Adopsi</a>
+      <a href="visits.html"><span class="nav-icon">📅</span> Jadwal</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="../index.html"><span class="nav-icon">🌙</span> Beranda</a>
+      <a href="../login.html" style="color:#EF4444!important"><span class="nav-icon">🚪</span> Keluar</a>
+    </div>
+  </div>
+
+  <div class="main-content" style="margin-left:260px">
+    <header class="top-header">
+      <div class="top-header-left">
+        <div>
+          <div class="page-title">Manajemen Shelter</div>
+          <div class="breadcrumb"><a href="#">Admin</a><span class="sep">/</span><span class="current">Manajemen Shelter</span></div>
+        </div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <button class="header-icon-btn" onclick="exportData('PDF')" title="Export PDF"><i class="fas fa-file-pdf" style="color:#EF4444"></i></button>
+        <button class="header-icon-btn" onclick="exportData('Excel')" title="Export Excel"><i class="fas fa-file-excel" style="color:#22C55E"></i></button>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <!-- CRUD Header -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 24px;">
+        <h2 style="font-size: 1.5rem; color: var(--text-primary); margin:0;">Manajemen Shelter</h2>
+        <button class="btn-gold" onclick="openAddModal()"><i class="fas fa-plus"></i> Tambah Shelter</button>
+      </div>
+      
+      <!-- Filter/Search -->
+      <div style="display:flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+        <div class="input-icon-wrap" style="flex:1; min-width: 250px;">
+          <i class="fas fa-search input-icon"></i>
+          <input type="text" class="form-control" id="searchShelter" placeholder="Cari Shelter..." style="margin-bottom:0;" oninput="filterTable()" />
+        </div>
+        <select class="form-control" id="filterStatus" style="width:auto; margin-bottom:0;" onchange="filterTable()">
+          <option value="">Filter Status</option>
+          <option value="aktif">Aktif</option>
+          <option value="nonaktif">Nonaktif</option>
+        </select>
+        <button class="btn-outline-gold"><i class="fas fa-filter"></i> Filter</button>
+      </div>
+
+      <!-- Data Table -->
+      <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; min-width: 800px;">
+          <thead>
+            <tr style="background: rgba(250,204,21,0.05); border-bottom: 2px solid var(--border-color);">
+              <th style="padding: 16px; text-align: left; color: var(--text-secondary); font-weight: 600;">ID</th>
+              <th style="padding: 16px; text-align: left; color: var(--text-secondary); font-weight: 600;">Nama Shelter</th>
+              <th style="padding: 16px; text-align: left; color: var(--text-secondary); font-weight: 600;">Kota</th>
+              <th style="padding: 16px; text-align: left; color: var(--text-secondary); font-weight: 600;">Status</th>
+              <th style="padding: 16px; text-align: left; color: var(--text-secondary); font-weight: 600;">Hewan</th>
+              <th style="padding: 16px; text-align: center; color: var(--text-secondary); font-weight: 600;">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="sheltersTableBody">
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 16px; color: var(--text-primary);">#S001</td>
+              <td style="padding: 16px; color: var(--text-primary); font-weight:500;">Happy Paws Shelter</td>
+              <td style="padding: 16px; color: var(--text-secondary);">Banjarmasin</td>
+              <td style="padding: 16px;"><span class="pet-status available" style="position:static; display:inline-block; font-size:0.75rem;">Aktif</span></td>
+              <td style="padding: 16px; color: var(--text-secondary);">24 Hewan</td>
+              <td style="padding: 16px; text-align: center;">
+                <button class="header-icon-btn" onclick="verifyShelter(this, 'Happy Paws Shelter')" style="padding: 6px; color: #22C55E; background:rgba(34, 197, 94, 0.1); border-radius:4px; margin-right: 4px;" title="Verifikasi"><i class="fas fa-check"></i></button>
+                <button class="header-icon-btn" onclick="editShelter('#S001', 'Happy Paws Shelter')" style="padding: 6px; color: var(--text-secondary); background:var(--bg-card); border-radius:4px; margin-right: 4px;" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="header-icon-btn" onclick="deleteShelter(this, 'Happy Paws Shelter')" style="padding: 6px; color: #EF4444; background:rgba(239, 68, 68, 0.1); border-radius:4px;" title="Hapus"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 16px; color: var(--text-primary);">#S002</td>
+              <td style="padding: 16px; color: var(--text-primary); font-weight:500;">Love Animal House</td>
+              <td style="padding: 16px; color: var(--text-secondary);">Banjarbaru</td>
+              <td style="padding: 16px;"><span class="pet-status pending" style="position:static; display:inline-block; font-size:0.75rem; background:rgba(239, 68, 68, 0.1); color:#EF4444;">Nonaktif</span></td>
+              <td style="padding: 16px; color: var(--text-secondary);">18 Hewan</td>
+              <td style="padding: 16px; text-align: center;">
+                <button class="header-icon-btn" onclick="verifyShelter(this, 'Love Animal House')" style="padding: 6px; color: #22C55E; background:rgba(34, 197, 94, 0.1); border-radius:4px; margin-right: 4px;" title="Verifikasi"><i class="fas fa-check"></i></button>
+                <button class="header-icon-btn" onclick="editShelter('#S002', 'Love Animal House')" style="padding: 6px; color: var(--text-secondary); background:var(--bg-card); border-radius:4px; margin-right: 4px;" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="header-icon-btn" onclick="deleteShelter(this, 'Love Animal House')" style="padding: 6px; color: #EF4444; background:rgba(239, 68, 68, 0.1); border-radius:4px;" title="Hapus"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 16px; color: var(--text-primary);">#S003</td>
+              <td style="padding: 16px; color: var(--text-primary); font-weight:500;">Paw Friends Shelter</td>
+              <td style="padding: 16px; color: var(--text-secondary);">Samarinda</td>
+              <td style="padding: 16px;"><span class="pet-status available" style="position:static; display:inline-block; font-size:0.75rem;">Aktif</span></td>
+              <td style="padding: 16px; color: var(--text-secondary);">31 Hewan</td>
+              <td style="padding: 16px; text-align: center;">
+                <button class="header-icon-btn" onclick="verifyShelter(this, 'Paw Friends Shelter')" style="padding: 6px; color: #22C55E; background:rgba(34, 197, 94, 0.1); border-radius:4px; margin-right: 4px;" title="Verifikasi"><i class="fas fa-check"></i></button>
+                <button class="header-icon-btn" onclick="editShelter('#S003', 'Paw Friends Shelter')" style="padding: 6px; color: var(--text-secondary); background:var(--bg-card); border-radius:4px; margin-right: 4px;" title="Edit"><i class="fas fa-edit"></i></button>
+                <button class="header-icon-btn" onclick="deleteShelter(this, 'Paw Friends Shelter')" style="padding: 6px; color: #EF4444; background:rgba(239, 68, 68, 0.1); border-radius:4px;" title="Hapus"><i class="fas fa-trash"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Pagination -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:24px;">
+        <div style="color:var(--text-secondary); font-size:0.875rem;">Menampilkan 1-3 dari 35 data</div>
+        <div style="display:flex; gap:8px;">
+          <button class="btn-outline-gold" disabled>Prev</button>
+          <button class="btn-gold">1</button>
+          <button class="btn-outline-gold">2</button>
+          <button class="btn-outline-gold">Next</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- Modal Edit -->
+<div id="editModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:var(--bg-secondary); border-radius:var(--radius-md); padding:32px; width:90%; max-width:460px; border:1px solid var(--border-color);">
+    <h3 style="margin:0 0 20px; color:var(--text-primary);">Edit Shelter <span id="editModalId" style="color:var(--moon-gold)"></span></h3>
+    <div class="form-group"><label class="form-label">Nama Shelter</label><input type="text" class="form-control" id="editName" /></div>
+    <div class="form-group"><label class="form-label">Kota</label><input type="text" class="form-control" id="editKota" /></div>
+    <div class="form-group">
+      <label class="form-label">Status</label>
+      <select class="form-control" id="editStatus"><option>Aktif</option><option>Nonaktif</option></select>
+    </div>
+    <div style="display:flex; gap:12px; justify-content:flex-end; margin-top:20px;">
+      <button class="btn-outline-gold" onclick="closeEditModal()">Batal</button>
+      <button class="btn-gold" onclick="saveEdit()"><i class="fas fa-save"></i> Simpan</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Add -->
+<div id="addModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:var(--bg-secondary); border-radius:var(--radius-md); padding:32px; width:90%; max-width:460px; border:1px solid var(--border-color);">
+    <h3 style="margin:0 0 20px; color:var(--text-primary);">Tambah Shelter Baru</h3>
+    <div class="form-group"><label class="form-label">Nama Shelter *</label><input type="text" class="form-control" id="addName" placeholder="Nama shelter..." /></div>
+    <div class="form-group"><label class="form-label">Kota *</label><input type="text" class="form-control" id="addKota" placeholder="Banjarmasin / ..." /></div>
+    <div class="form-group"><label class="form-label">Alamat</label><input type="text" class="form-control" id="addAlamat" placeholder="Jl. ..." /></div>
+    <div class="form-group"><label class="form-label">No. Telpon</label><input type="tel" class="form-control" id="addPhone" placeholder="0812-xxxx-xxxx" /></div>
+    <div style="display:flex; gap:12px; justify-content:flex-end; margin-top:20px;">
+      <button class="btn-outline-gold" onclick="closeAddModal()">Batal</button>
+      <button class="btn-gold" onclick="saveAddShelter()"><i class="fas fa-plus"></i> Tambah</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const theme = localStorage.getItem('moonpaw-theme') || 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+  document.querySelectorAll('[data-dark-toggle]').forEach(btn => {
+    const icon = btn.querySelector('i');
+    const update = () => {
+      const t = document.documentElement.getAttribute('data-theme');
+      if (icon) icon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    };
+    update();
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('moonpaw-theme', next);
+      update();
+    });
+  });
+});
+
+function filterTable() {
+  const search = document.getElementById('searchShelter').value.toLowerCase();
+  const rows = document.querySelectorAll('#sheltersTableBody tr');
+  rows.forEach(row => {
+    const name = row.cells[1].textContent.toLowerCase();
+    const kota = row.cells[2].textContent.toLowerCase();
+    row.style.display = (name.includes(search) || kota.includes(search)) ? '' : 'none';
+  });
+}
+
+function verifyShelter(btn, name) {
+  if (confirm(`Verifikasi shelter "${name}"?`)) {
+    const row = btn.closest('tr');
+    row.cells[3].innerHTML = '<span class="pet-status available" style="position:static;display:inline-block;font-size:0.75rem;">Terverifikasi ✓</span>';
+    btn.style.display = 'none';
+    showAdminToast('✅', `Shelter "${name}" berhasil diverifikasi!`);
+  }
+}
+
+function editShelter(id, name) {
+  document.getElementById('editModalId').textContent = id;
+  document.getElementById('editName').value = name;
+  document.getElementById('editKota').value = 'Banjarmasin';
+  document.getElementById('editModal').style.display = 'flex';
+}
+
+function closeEditModal() { document.getElementById('editModal').style.display = 'none'; }
+
+function saveEdit() {
+  const name = document.getElementById('editName').value;
+  if (!name) { alert('Nama shelter tidak boleh kosong!'); return; }
+  closeEditModal();
+  showAdminToast('✅', 'Data shelter berhasil diperbarui!');
+}
+
+function deleteShelter(btn, name) {
+  if (confirm(`Yakin ingin menghapus shelter "${name}"?`)) {
+    btn.closest('tr').remove();
+    showAdminToast('🗑️', `Shelter "${name}" berhasil dihapus!`);
+  }
+}
+
+function openAddModal() { document.getElementById('addModal').style.display = 'flex'; }
+function closeAddModal() { document.getElementById('addModal').style.display = 'none'; }
+
+function saveAddShelter() {
+  const name = document.getElementById('addName').value;
+  if (!name) { alert('Nama shelter wajib diisi!'); return; }
+  closeAddModal();
+  showAdminToast('✅', `Shelter "${name}" berhasil ditambahkan!`);
+}
+
+function exportData(type) { alert(`Mengekspor data shelter dalam format ${type}...`); }
+
+function showAdminToast(icon, msg) {
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<span class="toast-icon">${icon}</span><span class="toast-msg">${msg}</span>`;
+  document.body.appendChild(toast);
+  requestAnimationFrame(() => toast.classList.add('show'));
+  setTimeout(() => { toast.classList.remove('show'); setTimeout(() => toast.remove(), 400); }, 3000);
+}
+
+document.getElementById('editModal').addEventListener('click', function(e) { if(e.target===this) closeEditModal(); });
+document.getElementById('addModal').addEventListener('click', function(e) { if(e.target===this) closeAddModal(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 – Halaman Tidak Ditemukan | MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Apply saved theme immediately */
+    :root { --midnight: #0F172A; --moon-gold: #FACC15; }
+    body {
+      background: var(--bg-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 24px;
+      font-family: var(--font-primary);
+    }
+    .paw-float {
+      font-size: 5rem;
+      animation: pawFloat 3s ease-in-out infinite;
+      display: block;
+      margin-bottom: 20px;
+    }
+    @keyframes pawFloat {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50%       { transform: translateY(-18px) rotate(5deg); }
+    }
+    .err-code {
+      font-size: clamp(6rem, 20vw, 10rem);
+      font-weight: 900;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #FACC15, #F97316, #FACC15);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .err-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .err-desc {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .err-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .paw-trail {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+      opacity: 0.25;
+      font-size: 1.4rem;
+    }
+    .paw-trail span:nth-child(1) { animation: trailFade 2s ease-in-out infinite 0.0s; }
+    .paw-trail span:nth-child(2) { animation: trailFade 2s ease-in-out infinite 0.3s; }
+    .paw-trail span:nth-child(3) { animation: trailFade 2s ease-in-out infinite 0.6s; }
+    .paw-trail span:nth-child(4) { animation: trailFade 2s ease-in-out infinite 0.9s; }
+    .paw-trail span:nth-child(5) { animation: trailFade 2s ease-in-out infinite 1.2s; }
+    @keyframes trailFade {
+      0%, 100% { opacity: 0.15; transform: scale(0.8); }
+      50%       { opacity: 0.6; transform: scale(1.1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="paw-trail">
+    <span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span>
+  </div>
+
+  <span class="paw-float">🐾</span>
+
+  <div class="err-code">404</div>
+  <div class="err-title">Oops! This Pet Wandered Away.</div>
+  <p class="err-desc">
+    Sepertinya halaman yang kamu cari sudah kabur entah ke mana —<br>
+    mungkin sedang bermain di taman atau bersembunyi di bawah sofa.
+  </p>
+
+  <div class="err-btns">
+    <a href="index.html" class="btn-gold" id="err-home-btn">
+      <i class="fas fa-home"></i> Back Home
+    </a>
+    <a href="pets.html" class="btn-outline-gold" id="err-explore-btn" style="text-decoration:none">
+      <i class="fas fa-paw"></i> Explore Pets
+    </a>
+  </div>
+
+  <script>
+    (function() {
+      const theme = localStorage.getItem('moonpaw-theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</body>
+</html>

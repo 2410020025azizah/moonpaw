@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishlist – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+</head>
+<body>
+<div class="user-layout">
+  <div id="sidebarContainer"></div>
+  <div class="main-content">
+    <header class="top-header">
+      <div class="top-header-left">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div><div class="page-title">Wishlist</div>
+        <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span class="sep">/</span><span class="current">Wishlist</span></div></div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <a href="notifications.html" class="header-icon-btn"><i class="fas fa-bell"></i><span class="header-notif-badge">4</span></a>
+        <a href="profile.html" class="header-avatar">A</a>
+      </div>
+    </header>
+    <main class="page-content">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+        <div>
+          <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:4px">❤️ Wishlist Saya</h2>
+          <p style="font-size:0.875rem;color:var(--text-secondary)">3 hewan tersimpan</p>
+        </div>
+        <a href="pets.html" class="btn-gold" style="text-decoration:none" id="add-more-pets-btn"><i class="fas fa-plus"></i> Tambah Hewan</a>
+      </div>
+      <div class="pets-explore-grid">
+        <article class="pet-card" id="wl-pet-1">
+          <div class="pet-image"><img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=600" alt="Bella" /><span class="pet-status available">Available</span><button class="pet-wishlist-btn active" id="wl-wish-1"><i class="fas fa-heart" style="color:#EF4444"></i></button></div>
+          <div class="pet-body">
+            <h3 class="pet-name">Bella</h3><p class="pet-breed">Golden Retriever</p>
+            <div class="pet-meta"><span class="pet-meta-item"><i class="fas fa-venus"></i> Betina</span><span class="pet-meta-item"><i class="fas fa-calendar"></i> 2 Tahun</span></div>
+            <div class="pet-location"><i class="fas fa-map-marker-alt"></i> Happy Paws Shelter, Banjarmasin</div>
+            <div class="health-badges"><span class="health-badge ok">✓ Vaksin</span><span class="health-badge ok">✓ Steril</span></div>
+            <div class="pet-actions" style="margin-top:14px">
+              <a href="pet-detail.html" class="btn-pet btn-pet-detail" id="wl-detail-1"><i class="fas fa-eye"></i> Detail</a>
+              <a href="adoptions.html" class="btn-pet btn-pet-adopt" id="wl-adopt-1" style="text-decoration:none"><i class="fas fa-paw"></i> Adopt</a>
+            </div>
+          </div>
+        </article>
+        <article class="pet-card" id="wl-pet-2">
+          <div class="pet-image"><img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" alt="Mochi" /><span class="pet-status available">Available</span><button class="pet-wishlist-btn active" id="wl-wish-2"><i class="fas fa-heart" style="color:#EF4444"></i></button></div>
+          <div class="pet-body">
+            <h3 class="pet-name">Mochi</h3><p class="pet-breed">British Shorthair</p>
+            <div class="pet-meta"><span class="pet-meta-item"><i class="fas fa-mars"></i> Jantan</span><span class="pet-meta-item"><i class="fas fa-calendar"></i> 1 Tahun</span></div>
+            <div class="pet-location"><i class="fas fa-map-marker-alt"></i> Love Animal House, Samarinda</div>
+            <div class="health-badges"><span class="health-badge ok">✓ Vaksin</span></div>
+            <div class="pet-actions" style="margin-top:14px">
+              <a href="pet-detail.html" class="btn-pet btn-pet-detail" id="wl-detail-2"><i class="fas fa-eye"></i> Detail</a>
+              <a href="adoptions.html" class="btn-pet btn-pet-adopt" id="wl-adopt-2" style="text-decoration:none"><i class="fas fa-paw"></i> Adopt</a>
+            </div>
+          </div>
+        </article>
+        <article class="pet-card" id="wl-pet-3">
+          <div class="pet-image"><img src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&q=80&w=600" alt="Snow" /><span class="pet-status available">Available</span><button class="pet-wishlist-btn active" id="wl-wish-3"><i class="fas fa-heart" style="color:#EF4444"></i></button></div>
+          <div class="pet-body">
+            <h3 class="pet-name">Snow</h3><p class="pet-breed">Holland Lop</p>
+            <div class="pet-meta"><span class="pet-meta-item"><i class="fas fa-venus"></i> Betina</span><span class="pet-meta-item"><i class="fas fa-calendar"></i> 8 Bulan</span></div>
+            <div class="pet-location"><i class="fas fa-map-marker-alt"></i> Moon Shelter, Banjarbaru</div>
+            <div class="health-badges"><span class="health-badge ok">✓ Vaksin</span><span class="health-badge ok">✓ Sehat</span></div>
+            <div class="pet-actions" style="margin-top:14px">
+              <a href="pet-detail.html" class="btn-pet btn-pet-detail" id="wl-detail-3"><i class="fas fa-eye"></i> Detail</a>
+              <a href="adoptions.html" class="btn-pet btn-pet-adopt" id="wl-adopt-3" style="text-decoration:none"><i class="fas fa-paw"></i> Adopt</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="assets/js/user.js"></script>
+<script>document.addEventListener('DOMContentLoaded',()=>{ document.getElementById('sidebarContainer').innerHTML=buildUserSidebar('wishlist'); });</script>
+</body>
+</html>

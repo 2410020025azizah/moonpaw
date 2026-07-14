@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – MoonPaw</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div id="sidebarMount"></div>
+
+<div class="user-layout">
+  <div id="sidebarContainer"></div>
+
+  <div class="main-content">
+    <!-- Top Header -->
+    <header class="top-header">
+      <div class="top-header-left">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div>
+          <div class="page-title">Dashboard</div>
+          <div class="breadcrumb"><a href="index.html">MoonPaw</a><span class="sep">/</span><span class="current">Dashboard</span></div>
+        </div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+        <a href="notifications.html" class="header-icon-btn" id="header-notif-btn">
+          <i class="fas fa-bell"></i>
+          <span class="header-notif-badge">4</span>
+        </a>
+        <a href="profile.html" class="header-avatar" id="header-profile-btn">A</a>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <main class="page-content">
+      <!-- Welcome Banner -->
+      <div style="background:linear-gradient(135deg,var(--midnight),#1a2744);border-radius:var(--radius-xl);padding:32px 40px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:center;position:relative;overflow:hidden">
+        <div style="position:absolute;width:250px;height:250px;background:radial-gradient(circle,rgba(250,204,21,0.1),transparent);border-radius:50%;top:-80px;right:-30px"></div>
+        <div style="position:relative;z-index:1">
+          <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;margin-bottom:6px">Good Morning,</p>
+          <h1 style="color:white;font-size:1.8rem;font-weight:800;margin-bottom:8px">Muhammad 👋</h1>
+          <p style="color:rgba(255,255,255,0.6);font-size:0.9rem">Welcome back.</p>
+        </div>
+        <div style="position:relative;z-index:1;text-align:right;display:flex;gap:12px">
+          <a href="smart-match.html" class="btn-gold" id="dash-smart-match-btn"><i class="fas fa-magic"></i> Smart Match</a>
+          <a href="pets.html" class="btn-outline-gold" id="dash-explore-btn" style="text-decoration:none"><i class="fas fa-search"></i> Explore</a>
+        </div>
+      </div>
+
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dsi-gold">❤️</div>
+          <div class="dash-stat-info">
+            <div class="dash-stat-label">Favorite Pets</div>
+            <div class="dash-stat-value">4</div>
+            <div class="dash-stat-sub">Hewan disukai</div>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dsi-blue">📄</div>
+          <div class="dash-stat-info">
+            <div class="dash-stat-label">Adoption Requests</div>
+            <div class="dash-stat-value">2</div>
+            <div class="dash-stat-sub" style="color:var(--warning)">1 menunggu</div>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dsi-green">📅</div>
+          <div class="dash-stat-info">
+            <div class="dash-stat-label">Visit Schedule</div>
+            <div class="dash-stat-value">1</div>
+            <div class="dash-stat-sub">Jadwal hari ini</div>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon dsi-purple">🎁</div>
+          <div class="dash-stat-info">
+            <div class="dash-stat-label">MoonPoints</div>
+            <div class="dash-stat-value" id="user-points-display" style="display:flex;align-items:center;gap:6px"><span style="color:var(--moon-gold)">⭐</span> 120</div>
+            <div class="dash-stat-sub" style="color:var(--moon-gold);margin-top:6px;font-weight:600">Next Reward</div>
+            <div class="dash-stat-sub" style="color:var(--text-muted)">80 Points Left</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid layout -->
+      <div class="grid-sidebar">
+        <!-- Left -->
+        <div>
+          <!-- Activity Timeline -->
+          <div class="card" style="margin-bottom:24px">
+            <div class="card-header">
+              <div class="card-title">⚡ Activity Timeline</div>
+              <span style="font-size:0.8rem;color:var(--moon-gold)">Today</span>
+            </div>
+            <div class="card-body">
+              <div class="adoption-timeline">
+                <div class="timeline-step done">
+                  <div class="timeline-dot"><i class="fas fa-heart"></i></div>
+                  <div class="timeline-body">
+                    <div class="timeline-title">Wishlist Added</div>
+                    <div class="timeline-desc">Bella added to your wishlist</div>
+                  </div>
+                </div>
+                <div class="timeline-step done">
+                  <div class="timeline-dot"><i class="fas fa-paper-plane"></i></div>
+                  <div class="timeline-body">
+                    <div class="timeline-title">Adoption Submitted</div>
+                    <div class="timeline-desc">Adoption form for Bella submitted</div>
+                  </div>
+                </div>
+                <div class="timeline-step done">
+                  <div class="timeline-dot"><i class="fas fa-calendar-check"></i></div>
+                  <div class="timeline-body">
+                    <div class="timeline-title">Visit Approved</div>
+                    <div class="timeline-desc">Shelter approved your visit schedule</div>
+                  </div>
+                </div>
+                <div class="timeline-step done">
+                  <div class="timeline-dot"><i class="fas fa-certificate"></i></div>
+                  <div class="timeline-body">
+                    <div class="timeline-title">Certificate Ready</div>
+                    <div class="timeline-desc">Your adoption certificate is ready to download</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recommended Pets -->
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">🤖 Rekomendasi Untukmu</div>
+              <a href="smart-match.html" style="font-size:0.8rem;color:var(--moon-gold);text-decoration:none" id="dash-smart-match">Smart Match</a>
+            </div>
+            <div class="card-body">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <!-- mini pet card -->
+                <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);overflow:hidden;transition:var(--transition-bounce)" class="pet-card-mini" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                  <div style="height:100px;background:linear-gradient(135deg,#1E293B,#334155);display:flex;align-items:center;justify-content:center;font-size:3rem">🐕</div>
+                  <div style="padding:12px">
+                    <div style="font-weight:700;font-size:0.875rem;margin-bottom:2px">Max</div>
+                    <div style="font-size:0.75rem;color:var(--moon-gold-dark)">Labrador</div>
+                    <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px"><i class="fas fa-map-marker-alt"></i> Banjarmasin</div>
+                    <div style="margin-top:8px;display:flex;gap:6px">
+                      <span style="background:rgba(34,197,94,0.1);color:#22C55E;font-size:0.65rem;padding:2px 6px;border-radius:4px;font-weight:700">95% Match</span>
+                    </div>
+                  </div>
+                </div>
+                <div style="background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:var(--radius-md);overflow:hidden;transition:var(--transition-bounce)" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                  <div style="height:100px;background:linear-gradient(135deg,#2D1B69,#4C1D95);display:flex;align-items:center;justify-content:center;font-size:3rem">🐱</div>
+                  <div style="padding:12px">
+                    <div style="font-weight:700;font-size:0.875rem;margin-bottom:2px">Luna</div>
+                    <div style="font-size:0.75rem;color:var(--moon-gold-dark)">Persian Mix</div>
+                    <div style="font-size:0.72rem;color:var(--text-muted);margin-top:4px"><i class="fas fa-map-marker-alt"></i> Banjarbaru</div>
+                    <div style="margin-top:8px;display:flex;gap:6px">
+                      <span style="background:rgba(34,197,94,0.1);color:#22C55E;font-size:0.65rem;padding:2px 6px;border-radius:4px;font-weight:700">87% Match</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div>
+          <!-- Notification -->
+          <div class="card" style="margin-bottom:24px">
+            <div class="card-header">
+              <div class="card-title">🔔 Notifikasi Terbaru</div>
+              <a href="notifications.html" style="font-size:0.8rem;color:var(--moon-gold);text-decoration:none" id="dash-all-notif">Semua</a>
+            </div>
+            <div>
+              <div class="notif-item unread">
+                <div class="notif-icon" style="background:rgba(34,197,94,0.1)">✅</div>
+                <div class="notif-body">
+                  <div class="notif-title">Pengajuan Diterima!</div>
+                  <div class="notif-desc">Happy Paws Shelter menyetujui pengajuan adopsi Bella</div>
+                  <div class="notif-time">2 jam lalu</div>
+                </div>
+                <div class="notif-unread-dot"></div>
+              </div>
+              <div class="notif-item unread">
+                <div class="notif-icon" style="background:rgba(59,130,246,0.1)">📅</div>
+                <div class="notif-body">
+                  <div class="notif-title">Jadwal Kunjungan</div>
+                  <div class="notif-desc">Kunjungan dijadwalkan 15 Juli 2026 pukul 10.00 WITA</div>
+                  <div class="notif-time">5 jam lalu</div>
+                </div>
+                <div class="notif-unread-dot"></div>
+              </div>
+              <div class="notif-item">
+                <div class="notif-icon" style="background:rgba(250,204,21,0.1)">📚</div>
+                <div class="notif-body">
+                  <div class="notif-title">Artikel Baru</div>
+                  <div class="notif-desc">Cara Merawat Anak Kucing yang Baru Diadopsi</div>
+                  <div class="notif-time">1 hari lalu</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievement Badges -->
+          <div class="card" style="margin-bottom:24px">
+            <div class="card-header">
+              <div class="card-title">🏆 Badge Kamu</div>
+            </div>
+            <div class="card-body">
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-secondary);border-radius:var(--radius-sm);border:1px solid var(--border-color)">
+                  <span style="font-size:1.5rem">🥉</span>
+                  <div>
+                    <div style="font-weight:700;font-size:0.875rem">First Adoption</div>
+                    <div style="font-size:0.75rem;color:var(--text-secondary)">Adopsi pertamamu berhasil!</div>
+                  </div>
+                  <span class="status-badge success" style="margin-left:auto">Unlocked</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-secondary);border-radius:var(--radius-sm);border:1px solid var(--border-color);opacity:0.5">
+                  <span style="font-size:1.5rem">🥈</span>
+                  <div>
+                    <div style="font-weight:700;font-size:0.875rem">Pet Lover</div>
+                    <div style="font-size:0.75rem;color:var(--text-secondary)">Adopsi 3 hewan</div>
+                  </div>
+                  <span class="status-badge pending" style="margin-left:auto">Locked</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--bg-secondary);border-radius:var(--radius-sm);border:1px solid var(--border-color);opacity:0.5">
+                  <span style="font-size:1.5rem">🥇</span>
+                  <div>
+                    <div style="font-weight:700;font-size:0.875rem">Responsible Adopter</div>
+                    <div style="font-size:0.75rem;color:var(--text-secondary)">Rating bintang 5 dari shelter</div>
+                  </div>
+                  <span class="status-badge pending" style="margin-left:auto">Locked</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MoonPoints Reward Redemption -->
+          <div class="card" style="margin-bottom:24px">
+            <div class="card-header">
+              <div class="card-title">🎁 Tukar MoonPoints</div>
+            </div>
+            <div class="card-body">
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:var(--bg-secondary);border-radius:var(--radius-sm);border:1px solid var(--border-color)">
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <span style="font-size:1.5rem">✂️</span>
+                    <div>
+                      <div style="font-weight:700;font-size:0.875rem">Voucher Grooming</div>
+                      <div style="font-size:0.75rem;color:var(--text-secondary)">Diskon salon hewan</div>
+                    </div>
+                  </div>
+                  <button class="btn-gold" style="padding:6px 12px;font-size:0.72rem;border-radius:6px" onclick="redeemReward('Voucher Grooming', 50)">50 Pts</button>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:var(--bg-secondary);border-radius:var(--radius-sm);border:1px solid var(--border-color)">
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <span style="font-size:1.5rem">👕</span>
+                    <div>
+                      <div style="font-weight:700;font-size:0.875rem">Merchandise Kaos</div>
+                      <div style="font-size:0.75rem;color:var(--text-secondary)">Kaos eksklusif MoonPaw</div>
+                    </div>
+                  </div>
+                  <button class="btn-gold" style="padding:6px 12px;font-size:0.72rem;border-radius:6px" onclick="redeemReward('Merchandise Kaos', 100)">100 Pts</button>
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;padding:12px;background:var(--bg-secondary);border-radius:var(--radius-sm);border:1px solid var(--border-color)">
+                  <div style="display:flex;align-items:center;gap:10px">
+                    <span style="font-size:1.5rem">🛒</span>
+                    <div>
+                      <div style="font-weight:700;font-size:0.875rem">Voucher Pet Shop</div>
+                      <div style="font-size:0.75rem;color:var(--text-secondary)">Belanja makanan & mainan</div>
+                    </div>
+                  </div>
+                  <button class="btn-gold" style="padding:6px 12px;font-size:0.72rem;border-radius:6px" onclick="redeemReward('Voucher Pet Shop', 150)">150 Pts</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="card">
+            <div class="card-header"><div class="card-title">⚡ Akses Cepat</div></div>
+            <div class="card-body">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                <a href="pets.html" class="btn-outline-gold" style="text-decoration:none;font-size:0.8rem;padding:10px;justify-content:center" id="quick-explore"><i class="fas fa-search"></i> Explore</a>
+                <a href="wishlist.html" class="btn-outline-gold" style="text-decoration:none;font-size:0.8rem;padding:10px;justify-content:center" id="quick-wishlist"><i class="fas fa-heart"></i> Wishlist</a>
+                <a href="blog.html" class="btn-outline-gold" style="text-decoration:none;font-size:0.8rem;padding:10px;justify-content:center" id="quick-blog"><i class="fas fa-book"></i> Blog</a>
+                <a href="profile.html" class="btn-outline-gold" style="text-decoration:none;font-size:0.8rem;padding:10px;justify-content:center" id="quick-profile"><i class="fas fa-user"></i> Profil</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/user.js"></script>
+<script>
+let currentPoints = 120;
+function redeemReward(rewardName, cost) {
+  if (currentPoints >= cost) {
+    currentPoints -= cost;
+    document.getElementById('user-points-display').textContent = currentPoints;
+    showUserToast('🎉', `Menukar ${cost} MoonPoints dengan ${rewardName}!`);
+  } else {
+    showUserToast('⚠️', `MoonPoints tidak cukup untuk ${rewardName}.`);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('sidebarContainer').innerHTML = buildUserSidebar('dashboard');
+});
+</script>
+</body>
+</html>

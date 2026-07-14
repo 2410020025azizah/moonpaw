@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog & Edukasi – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+</head>
+<body>
+<div class="user-layout">
+  <div id="sidebarContainer"></div>
+  <div class="main-content">
+    <header class="top-header">
+      <div class="top-header-left">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div><div class="page-title">Blog & Edukasi</div>
+        <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span class="sep">/</span><span class="current">Blog</span></div></div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <a href="notifications.html" class="header-icon-btn"><i class="fas fa-bell"></i><span class="header-notif-badge">4</span></a>
+        <a href="profile.html" class="header-avatar">A</a>
+      </div>
+    </header>
+    <main class="page-content">
+      <div style="margin-bottom:28px">
+        <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:4px">📚 Blog & Edukasi Hewan</h2>
+        <p style="font-size:0.875rem;color:var(--text-secondary)">Tips dan panduan menarik untuk merawat hewan peliharaan kesayanganmu.</p>
+      </div>
+
+      <!-- Categories -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px">
+        <button style="padding:6px 16px;border-radius:20px;border:none;background:var(--moon-gold);color:var(--midnight);font-weight:700;font-size:0.85rem;cursor:pointer">All</button>
+        <button style="padding:6px 16px;border-radius:20px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-primary);font-weight:600;font-size:0.85rem;cursor:pointer">Cat</button>
+        <button style="padding:6px 16px;border-radius:20px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-primary);font-weight:600;font-size:0.85rem;cursor:pointer">Dog</button>
+        <button style="padding:6px 16px;border-radius:20px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-primary);font-weight:600;font-size:0.85rem;cursor:pointer">Rabbit</button>
+        <button style="padding:6px 16px;border-radius:20px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-primary);font-weight:600;font-size:0.85rem;cursor:pointer">Health</button>
+        <button style="padding:6px 16px;border-radius:20px;border:1px solid var(--border-color);background:var(--bg-secondary);color:var(--text-primary);font-weight:600;font-size:0.85rem;cursor:pointer">Nutrition</button>
+      </div>
+
+      <div class="pets-explore-grid">
+        <article class="blog-card" style="margin: 0;">
+          <div class="blog-image">🐱<span class="blog-category">Tips & Care</span></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span>📅 10 Jul 2026</span><span>👤 Admin</span></div>
+            <h3 class="blog-title">Cara Merawat Anak Kucing yang Baru Diadopsi</h3>
+            <p class="blog-excerpt">Mengadopsi anak kucing memerlukan persiapan khusus. Dari pakan berkualitas hingga toilet training...</p>
+            <a href="javascript:alert('Artikel ini sedang dalam tahap review dan akan segera diterbitkan.')" class="blog-read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card" style="margin: 0; background:linear-gradient(135deg,#1a2e1a,#2d5016)">
+          <div class="blog-image">🐕<span class="blog-category">Panduan</span></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span>📅 8 Jul 2026</span><span>👤 drh. Sarah</span></div>
+            <h3 class="blog-title" style="color:white;">Persiapan Sebelum Mengadopsi Anjing Pertamamu</h3>
+            <p class="blog-excerpt" style="color:rgba(255,255,255,0.7);">Siapkan mental, kandang, pakan bergizi, dan ketahui waktu kunjungan vaksin wajib pertama...</p>
+            <a href="javascript:alert('Artikel ini sedang dalam tahap review dan akan segera diterbitkan.')" class="blog-read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <article class="blog-card" style="margin: 0; background:linear-gradient(135deg,#1a1a3e,#2d2d6b)">
+          <div class="blog-image">💉<span class="blog-category">Kesehatan</span></div>
+          <div class="blog-body">
+            <div class="blog-meta"><span>📅 5 Jul 2026</span><span>👤 drh. Budi</span></div>
+            <h3 class="blog-title" style="color:white;">Pentingnya Vaksinasi Lengkap Pada Hewan</h3>
+            <p class="blog-excerpt" style="color:rgba(255,255,255,0.7);">Mencegah virus parvovirus, distemper, rabies, dan penyakit mematikan lainnya pada peliharaan...</p>
+            <a href="javascript:alert('Artikel ini sedang dalam tahap review dan akan segera diterbitkan.')" class="blog-read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="assets/js/user.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('sidebarContainer').innerHTML=buildUserSidebar('blog');
+});
+</script>
+</body>
+</html>

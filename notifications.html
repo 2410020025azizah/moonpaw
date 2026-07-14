@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notifikasi – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+</head>
+<body>
+<div class="user-layout">
+  <div id="sidebarContainer"></div>
+  <div class="main-content">
+    <header class="top-header">
+      <div class="top-header-left">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div><div class="page-title">Notifikasi</div>
+        <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span class="sep">/</span><span class="current">Notifikasi</span></div></div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <a href="notifications.html" class="header-icon-btn active"><i class="fas fa-bell"></i><span class="header-notif-badge" id="notif-badge">4</span></a>
+        <a href="profile.html" class="header-avatar">A</a>
+      </div>
+    </header>
+    <main class="page-content">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+        <div>
+          <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:4px">🔔 Kotak Masuk Notifikasi</h2>
+          <p style="font-size:0.875rem;color:var(--text-secondary)">Anda memiliki <strong id="unread-count">4</strong> pesan belum dibaca</p>
+        </div>
+        <button class="btn-outline-gold" id="mark-all-read" style="font-size:0.8rem;padding:8px 16px"><i class="fas fa-check-double"></i> Tandai Semua Dibaca</button>
+      </div>
+
+      <div class="card">
+        <div class="notif-list" id="notifList">
+          <div class="notif-item unread">
+            <div class="notif-icon" style="background:rgba(34,197,94,0.1)">✅</div>
+            <div class="notif-body">
+              <div class="notif-title">Pengajuan Adopsi Disetujui!</div>
+              <div class="notif-desc">Selamat, Happy Paws Shelter menyetujui pengajuan adopsimu untuk Bella. Silakan jadwalkan kunjungan shelter.</div>
+              <div class="notif-time">2 jam yang lalu</div>
+            </div>
+            <div class="notif-unread-dot"></div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon" style="background:rgba(59,130,246,0.1)">📅</div>
+            <div class="notif-body">
+              <div class="notif-title">Jadwal Kunjungan Dikonfirmasi</div>
+              <div class="notif-desc">Kunjungan ke Happy Paws Shelter dijadwalkan pada 15 Juli 2026 pukul 10.00 WITA.</div>
+              <div class="notif-time">5 jam yang lalu</div>
+            </div>
+            <div class="notif-unread-dot"></div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon" style="background:rgba(250,204,21,0.1)">🎁</div>
+            <div class="notif-body">
+              <div class="notif-title">Reward Poin Aktif!</div>
+              <div class="notif-desc">Selamat! Anda mendapatkan 250 poin dari adopsi Luna sebelumnya. Tukarkan di menu Reward.</div>
+              <div class="notif-time">1 hari yang lalu</div>
+            </div>
+            <div class="notif-unread-dot"></div>
+          </div>
+          <div class="notif-item unread">
+            <div class="notif-icon" style="background:rgba(250,204,21,0.1)">📚</div>
+            <div class="notif-body">
+              <div class="notif-title">Artikel Edukasi Baru Diterbitkan</div>
+              <div class="notif-desc">Baca artikel terbaru kami: "Cara Merawat Anak Kucing yang Baru Diadopsi".</div>
+              <div class="notif-time">2 hari yang lalu</div>
+            </div>
+            <div class="notif-unread-dot"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="assets/js/user.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('sidebarContainer').innerHTML=buildUserSidebar('notifications');
+  
+  const markBtn = document.getElementById('mark-all-read');
+  markBtn.addEventListener('click', () => {
+    document.querySelectorAll('.notif-item').forEach(item => {
+      item.classList.remove('unread');
+      const dot = item.querySelector('.notif-unread-dot');
+      if (dot) dot.remove();
+    });
+    document.getElementById('unread-count').textContent = '0';
+    document.querySelectorAll('.header-notif-badge').forEach(b => b.remove());
+    showUserToast('✅', 'Semua notifikasi ditandai dibaca!');
+  });
+});
+</script>
+</body>
+</html>

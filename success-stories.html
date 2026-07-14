@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Success Stories – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+</head>
+<body>
+<div class="user-layout">
+  <div id="sidebarContainer"></div>
+  <div class="main-content">
+    <header class="top-header">
+      <div class="top-header-left">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div>
+          <div class="page-title">Success Stories</div>
+          <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span class="sep">/</span><span class="current">Success Stories</span></div>
+        </div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <a href="notifications.html" class="header-icon-btn"><i class="fas fa-bell"></i><span class="header-notif-badge">4</span></a>
+        <a href="profile.html" class="header-avatar">A</a>
+      </div>
+    </header>
+    <main class="page-content">
+      <!-- Hero -->
+      <section class="card" style="padding:40px;text-align:center;background:linear-gradient(135deg,rgba(15,23,42,0.96),rgba(30,41,59,0.96)),url('https://images.unsplash.com/photo-1551730459-92db2a308d6a?auto=format&fit=crop&q=80&w=800') center/cover;color:white;border:none;margin-bottom:30px;overflow:hidden">
+        <div style="position:relative;z-index:2">
+          <div style="font-size:2.5rem;margin-bottom:10px">🎉</div>
+          <h1 style="font-size:2rem;font-weight:800;margin-bottom:10px;font-family:var(--font-heading)">Success Stories</h1>
+          <p style="color:#cbd5e1;max-width:600px;margin:0 auto;line-height:1.7">Kisah-kisah bahagia dari adopter yang telah menemukan sahabat berbulu mereka melalui MoonPaw.</p>
+        </div>
+      </section>
+
+      <!-- Stories Grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px">
+        <!-- Story 1 -->
+        <div class="card" style="overflow:hidden;transition:transform 0.3s" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="display:grid;grid-template-columns:1fr 1fr;height:180px">
+            <div style="position:relative;overflow:hidden">
+              <div style="position:absolute;top:8px;left:8px;background:var(--danger);color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:10px;z-index:2">BEFORE</div>
+              <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=300" alt="Before" style="width:100%;height:100%;object-fit:cover;filter:grayscale(60%)">
+            </div>
+            <div style="position:relative;overflow:hidden">
+              <div style="position:absolute;top:8px;right:8px;background:#22C55E;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:10px;z-index:2">AFTER</div>
+              <img src="https://images.unsplash.com/photo-1527526029430-319f4814cd6c?auto=format&fit=crop&q=80&w=300" alt="After" style="width:100%;height:100%;object-fit:cover">
+            </div>
+          </div>
+          <div style="padding:20px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+              <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--moon-gold),#F97316);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--midnight);font-size:1rem;flex-shrink:0">A</div>
+              <div>
+                <div style="font-weight:700;font-size:0.9rem;color:var(--text-primary)">Amanda Putri</div>
+                <div style="font-size:0.72rem;color:var(--text-muted)">Juni 2026 · Banjarmasin</div>
+              </div>
+              <div style="margin-left:auto;color:var(--moon-gold);font-size:0.85rem">★★★★★</div>
+            </div>
+            <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text-primary)">Luna Mengubah Hidupku 🐱</h3>
+            <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.6;margin-bottom:14px">"Ketika pertama kali melihat Luna di MoonPaw, saya langsung jatuh cinta. Prosesnya sangat mudah dan transparan. Sekarang Luna selalu menemani hari-hariku."</p>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:0.75rem;color:var(--text-muted);display:flex;align-items:center;gap:6px"><i class="fas fa-paw"></i> Luna – Persian Mix</span>
+              <span style="background:rgba(34,197,94,0.12);color:#22C55E;font-size:0.7rem;padding:3px 10px;border-radius:20px;font-weight:700">Adopted ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 2 -->
+        <div class="card" style="overflow:hidden;transition:transform 0.3s" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="display:grid;grid-template-columns:1fr 1fr;height:180px">
+            <div style="position:relative;overflow:hidden">
+              <div style="position:absolute;top:8px;left:8px;background:var(--danger);color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:10px;z-index:2">BEFORE</div>
+              <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=300" alt="Before" style="width:100%;height:100%;object-fit:cover;filter:grayscale(60%)">
+            </div>
+            <div style="position:relative;overflow:hidden">
+              <div style="position:absolute;top:8px;right:8px;background:#22C55E;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:10px;z-index:2">AFTER</div>
+              <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=300" alt="After" style="width:100%;height:100%;object-fit:cover">
+            </div>
+          </div>
+          <div style="padding:20px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+              <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#3B82F6,#1E40AF);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:1rem;flex-shrink:0">R</div>
+              <div>
+                <div style="font-weight:700;font-size:0.9rem;color:var(--text-primary)">Rizky Pratama</div>
+                <div style="font-size:0.72rem;color:var(--text-muted)">Mei 2026 · Samarinda</div>
+              </div>
+              <div style="margin-left:auto;color:var(--moon-gold);font-size:0.85rem">★★★★★</div>
+            </div>
+            <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text-primary)">Buddy si Pengusir Sepi 🐕</h3>
+            <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.6;margin-bottom:14px">"Buddy dulunya terlihat lusuh dan takut. Tapi setelah satu bulan bersama kami, dia berubah jadi anjing paling ceria dan energik. Terima kasih MoonPaw!"</p>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:0.75rem;color:var(--text-muted);display:flex;align-items:center;gap:6px"><i class="fas fa-paw"></i> Buddy – Golden Retriever</span>
+              <span style="background:rgba(34,197,94,0.12);color:#22C55E;font-size:0.7rem;padding:3px 10px;border-radius:20px;font-weight:700">Adopted ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Story 3 -->
+        <div class="card" style="overflow:hidden;transition:transform 0.3s" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="display:grid;grid-template-columns:1fr 1fr;height:180px">
+            <div style="position:relative;overflow:hidden">
+              <div style="position:absolute;top:8px;left:8px;background:var(--danger);color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:10px;z-index:2">BEFORE</div>
+              <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&q=80&w=300" alt="Before" style="width:100%;height:100%;object-fit:cover;filter:grayscale(60%)">
+            </div>
+            <div style="position:relative;overflow:hidden">
+              <div style="position:absolute;top:8px;right:8px;background:#22C55E;color:white;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:10px;z-index:2">AFTER</div>
+              <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=300" alt="After" style="width:100%;height:100%;object-fit:cover">
+            </div>
+          </div>
+          <div style="padding:20px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+              <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#EC4899,#BE185D);display:flex;align-items:center;justify-content:center;font-weight:700;color:white;font-size:1rem;flex-shrink:0">S</div>
+              <div>
+                <div style="font-weight:700;font-size:0.9rem;color:var(--text-primary)">Siti Rahayu</div>
+                <div style="font-size:0.72rem;color:var(--text-muted)">April 2026 · Banjarbaru</div>
+              </div>
+              <div style="margin-left:auto;color:var(--moon-gold);font-size:0.85rem">★★★★★</div>
+            </div>
+            <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;color:var(--text-primary)">Max Teman Setia Anak-Anak 🐾</h3>
+            <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.6;margin-bottom:14px">"Anak-anak saya sangat bahagia dengan kehadiran Max. Setiap pulang sekolah Max sudah menunggu di depan pintu. Proses adopsi di MoonPaw sangat terpercaya!"</p>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <span style="font-size:0.75rem;color:var(--text-muted);display:flex;align-items:center;gap:6px"><i class="fas fa-paw"></i> Max – Labrador</span>
+              <span style="background:rgba(34,197,94,0.12);color:#22C55E;font-size:0.7rem;padding:3px 10px;border-radius:20px;font-weight:700">Adopted ✓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div style="text-align:center;margin-top:40px;padding:40px;background:linear-gradient(135deg,var(--midnight),#1a2744);border-radius:var(--radius-xl);color:white">
+        <div style="font-size:2.5rem;margin-bottom:12px">🌙</div>
+        <h2 style="font-size:1.6rem;font-weight:800;margin-bottom:10px">Jadilah Bagian dari Kisah Sukses Berikutnya!</h2>
+        <p style="color:rgba(255,255,255,0.65);margin-bottom:24px">Ada ratusan hewan yang menunggu adopter baik hati seperti kamu.</p>
+        <a href="pets.html" class="btn-gold" id="story-explore-btn"><i class="fas fa-paw"></i> Temukan Sahabatmu</a>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/user.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('sidebarContainer').innerHTML = buildUserSidebar('stories');
+});
+</script>
+</body>
+</html>

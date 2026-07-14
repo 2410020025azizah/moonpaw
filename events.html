@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Adopsi – MoonPaw</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/user.css" />
+</head>
+<body>
+<div class="user-layout">
+  <div id="sidebarContainer"></div>
+  <div class="main-content">
+    <header class="top-header">
+      <div class="top-header-left">
+        <button class="mobile-sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        <div>
+          <div class="page-title">Event Adopsi</div>
+          <div class="breadcrumb"><a href="dashboard.html">Dashboard</a><span class="sep">/</span><span class="current">Event Adopsi</span></div>
+        </div>
+      </div>
+      <div class="top-header-right">
+        <button class="header-icon-btn" data-dark-toggle><i class="fas fa-moon"></i></button>
+        <a href="notifications.html" class="header-icon-btn"><i class="fas fa-bell"></i><span class="header-notif-badge">4</span></a>
+        <a href="profile.html" class="header-avatar">A</a>
+      </div>
+    </header>
+    <main class="page-content">
+      <!-- Hero Section -->
+      <section class="card" style="padding: 40px; text-align:center; background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,41,59,0.95)), url('https://images.unsplash.com/photo-1541364983171-a8ba01e95cfc?auto=format&fit=crop&q=80&w=800') center/cover; color:white; border:none; margin-bottom: 30px; position:relative; overflow:hidden">
+        <div style="position:relative; z-index:2">
+          <h1 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; font-family: var(--font-heading)">🎪 Event Adopsi Terdekat</h1>
+          <p style="font-size: 1rem; max-width: 600px; margin: 0 auto 20px; color: #cbd5e1; line-height:1.6">Kunjungi event-event offline kami dan temui langsung calon sahabat berbulumu. Jadilah saksi awal perjalanan baru mereka.</p>
+        </div>
+      </section>
+
+      <!-- Countdown Section -->
+      <div class="card" style="margin-bottom:30px;background:linear-gradient(135deg,var(--moon-gold),#F97316);border:none;color:var(--midnight);padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px">
+        <div>
+          <div style="font-weight:800;font-size:1.5rem;font-family:var(--font-heading)">Pet Adoption Day 🎉</div>
+          <div style="font-size:0.9rem;font-weight:600;opacity:0.8;margin-top:4px">Central Park Mall, Jakarta • 15 Agustus 2026</div>
+        </div>
+        <div style="display:flex;gap:12px;text-align:center">
+          <div style="background:var(--midnight);color:white;padding:12px 20px;border-radius:10px;min-width:70px">
+            <div style="font-size:1.8rem;font-weight:800;line-height:1">15</div>
+            <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-top:4px;color:var(--moon-gold)">Days</div>
+          </div>
+          <div style="background:var(--midnight);color:white;padding:12px 20px;border-radius:10px;min-width:70px">
+            <div style="font-size:1.8rem;font-weight:800;line-height:1">08</div>
+            <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-top:4px;color:var(--moon-gold)">Hours</div>
+          </div>
+          <div style="background:var(--midnight);color:white;padding:12px 20px;border-radius:10px;min-width:70px">
+            <div style="font-size:1.8rem;font-weight:800;line-height:1">30</div>
+            <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;margin-top:4px;color:var(--moon-gold)">Mins</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Events Grid -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+        <!-- Event 1 -->
+        <article class="card" style="overflow:hidden; transition:transform 0.3s; display:flex; flex-direction:column" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="height:200px; overflow:hidden; position:relative">
+            <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&q=80&w=600" alt="Dog Adoption Drive" style="width:100%; height:100%; object-fit:cover;">
+            <span style="position:absolute; top:12px; right:12px; background:var(--moon-gold); color:var(--bg-primary); padding:4px 10px; font-size:0.75rem; font-weight:700; border-radius:12px">Adopsi</span>
+          </div>
+          <div style="padding:20px; flex-grow:1; display:flex; flex-direction:column; justify-content:space-between">
+            <div>
+              <div style="color:var(--moon-gold); font-size:0.82rem; font-weight:600; margin-bottom:8px;"><i class="far fa-calendar-alt"></i> 15 Agustus 2026 • 10:00 - 15:00</div>
+              <h3 style="margin-bottom:10px; font-size:1.15rem; font-weight:700; color:var(--text-primary)">Paw-fest Adoption Drive</h3>
+              <p style="color:var(--text-secondary); font-size:0.875rem; margin-bottom:16px; line-height:1.6;">Acara adopsi massal terbesar bulan ini! Temui puluhan anjing dan kucing yang siap diadopsi.</p>
+              <div style="display:flex; align-items:center; gap:8px; color:var(--text-muted); font-size:0.82rem; margin-bottom:20px;">
+                <i class="fas fa-map-marker-alt"></i> Central Park Mall, Jakarta
+              </div>
+            </div>
+            <button class="btn-gold" style="width:100%; justify-content:center" onclick="showEventRegisterToast('Paw-fest Adoption Drive')">Daftar Hadir</button>
+          </div>
+        </article>
+        
+        <!-- Event 2 -->
+        <article class="card" style="overflow:hidden; transition:transform 0.3s; display:flex; flex-direction:column" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="height:200px; overflow:hidden; position:relative">
+            <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=600" alt="Cat Cafe Meetup" style="width:100%; height:100%; object-fit:cover;">
+            <span style="position:absolute; top:12px; right:12px; background:var(--moon-gold); color:var(--bg-primary); padding:4px 10px; font-size:0.75rem; font-weight:700; border-radius:12px">Adopsi</span>
+          </div>
+          <div style="padding:20px; flex-grow:1; display:flex; flex-direction:column; justify-content:space-between">
+            <div>
+              <div style="color:var(--moon-gold); font-size:0.82rem; font-weight:600; margin-bottom:8px;"><i class="far fa-calendar-alt"></i> 22 Agustus 2026 • 13:00 - 17:00</div>
+              <h3 style="margin-bottom:10px; font-size:1.15rem; font-weight:700; color:var(--text-primary)">Cat Lovers Meetup & Adoption</h3>
+              <p style="color:var(--text-secondary); font-size:0.875rem; margin-bottom:16px; line-height:1.6;">Khusus bagi pecinta kucing! Santai bersama sambil bermain dengan kucing-kucing lucu dari shelter.</p>
+              <div style="display:flex; align-items:center; gap:8px; color:var(--text-muted); font-size:0.82rem; margin-bottom:20px;">
+                <i class="fas fa-map-marker-alt"></i> Meow Cafe, Kemang
+              </div>
+            </div>
+            <button class="btn-gold" style="width:100%; justify-content:center" onclick="showEventRegisterToast('Cat Lovers Meetup & Adoption')">Daftar Hadir</button>
+          </div>
+        </article>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="assets/js/user.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('sidebarContainer').innerHTML = buildUserSidebar('events');
+});
+
+function showEventRegisterToast(eventName) {
+  showUserToast('🎟️', `Daftar hadir untuk ${eventName} berhasil!`);
+}
+</script>
+</body>
+</html>

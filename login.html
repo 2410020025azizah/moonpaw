@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Masuk ke akun MoonPaw Anda dan temukan sahabat berbulumu." />
+  <title>Login – MoonPaw Smart Pet Adoption</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/auth.css" />
+</head>
+<body>
+
+<div class="auth-page">
+  <!-- ── Left Panel ─── -->
+  <div class="auth-left">
+    <div class="auth-stars" id="authStars"></div>
+    <div class="auth-left-orb1"></div>
+    <div class="auth-left-orb2"></div>
+    <div class="auth-left-content">
+      <span class="auth-moon-illustration">🌙🐾</span>
+      <h2>Selamat Datang<br/>Kembali di <span>MoonPaw</span></h2>
+      <p>Masuk ke akunmu dan lanjutkan perjalanan menemukan sahabat berbulumu yang sempurna.</p>
+      <div class="auth-features">
+        <div class="auth-feature">
+          <span class="auth-feature-icon">🐾</span>
+          <span class="auth-feature-text">250+ hewan menunggu rumah baru</span>
+        </div>
+        <div class="auth-feature">
+          <span class="auth-feature-icon">🩺</span>
+          <span class="auth-feature-text">Rekam kesehatan lengkap setiap hewan</span>
+        </div>
+        <div class="auth-feature">
+          <span class="auth-feature-icon">📄</span>
+          <span class="auth-feature-text">Sertifikat adopsi digital resmi</span>
+        </div>
+        <div class="auth-feature">
+          <span class="auth-feature-icon">❤️</span>
+          <span class="auth-feature-text">1.500+ keluarga bahagia bergabung</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Right Panel ─── -->
+  <div class="auth-right">
+    <div class="auth-form-wrapper">
+      <!-- Logo -->
+      <a href="index.html" class="auth-logo" id="auth-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 6C14.477 6 10 10.477 10 16C10 21.523 14.477 26 20 26C16.686 26 14 23.314 14 20C14 16.686 16.686 14 20 14C23.314 14 26 16.686 26 20C26 14.477 21.523 10 16 10" fill="#FACC15"/>
+            <ellipse cx="16" cy="19" rx="3" ry="3.5" fill="#FACC15" opacity="0.9"/>
+            <ellipse cx="12.5" cy="17" rx="1.5" ry="2" fill="#FACC15" opacity="0.7"/>
+            <ellipse cx="19.5" cy="17" rx="1.5" ry="2" fill="#FACC15" opacity="0.7"/>
+            <ellipse cx="11" cy="20.5" rx="1.3" ry="1.8" fill="#FACC15" opacity="0.7"/>
+            <ellipse cx="21" cy="20.5" rx="1.3" ry="1.8" fill="#FACC15" opacity="0.7"/>
+          </svg>
+        </div>
+        <span class="logo-text">Moon<span>Paw</span></span>
+      </a>
+
+      <h1 class="auth-heading">Masuk ke Akun</h1>
+      <p class="auth-subheading">Belum punya akun? <a href="register.html" id="goto-register">Daftar gratis sekarang</a></p>
+
+      <!-- Google Login -->
+      <button class="btn-social" id="google-login-btn" type="button" onclick="handleGoogleLogin()">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Lanjutkan dengan Google
+      </button>
+
+      <div class="auth-divider"><span>atau masuk dengan email</span></div>
+
+      <!-- Login Form -->
+      <form class="auth-form" id="loginForm" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email</label>
+          <div class="input-icon-wrap">
+            <i class="fas fa-envelope input-icon"></i>
+            <input type="email" class="form-control" id="login-email" placeholder="email@kamu.com" required autocomplete="email" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <label class="form-label" for="login-password" style="margin:0">Password</label>
+            <a href="forgot-password.html" style="font-size:0.8rem;color:var(--moon-gold);text-decoration:none" id="forgot-password-link">Lupa password?</a>
+          </div>
+          <div class="input-password-wrapper input-icon-wrap">
+            <i class="fas fa-lock input-icon"></i>
+            <input type="password" class="form-control" id="login-password" placeholder="Masukkan password" required autocomplete="current-password" />
+            <button type="button" class="password-toggle" id="toggleLoginPassword" aria-label="Toggle password visibility">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group" style="display:flex;justify-content:space-between;align-items:center">
+          <label class="auth-checkbox">
+            <input type="checkbox" id="remember-me" />
+            <span>Ingat saya selama 30 hari</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-gold w-100" id="login-submit-btn" style="justify-content:center;margin-top:8px">
+          <i class="fas fa-sign-in-alt"></i> Masuk ke Akun
+        </button>
+
+        <!-- Demo credentials -->
+        <div style="margin-top:20px;padding:16px;background:rgba(250,204,21,0.08);border:1px solid rgba(250,204,21,0.2);border-radius:var(--radius-sm)">
+          <p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:8px;font-weight:600">🔑 Demo Credentials:</p>
+          <p style="font-size:0.78rem;color:var(--text-secondary);margin:3px 0">👤 Customer: <code style="color:var(--moon-gold)">amanda@moonpaw.com</code> / <code style="color:var(--moon-gold)">customer123</code></p>
+          <p style="font-size:0.78rem;color:var(--text-secondary);margin:3px 0">🔧 Admin: <code style="color:var(--moon-gold)">moonpawpet@gmail.com</code> / <code style="color:var(--moon-gold)">admin123</code></p>
+          <p style="font-size:0.78rem;color:var(--text-muted);margin-top:8px;border-top:1px solid rgba(250,204,21,0.15);padding-top:8px">💡 Atau login dengan email & password yang kamu daftarkan.</p>
+        </div>
+      </form>
+
+      <div class="auth-footer">
+        Belum punya akun? <a href="register.html" id="footer-register-link">Daftar sekarang — Gratis!</a>
+      </div>
+
+      <!-- Dark mode toggle -->
+      <div style="text-align:center;margin-top:24px">
+        <button class="dark-toggle" id="authDarkToggle" aria-label="Toggle dark mode" style="margin:0 auto">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Stars
+  const starsEl = document.getElementById('authStars');
+  if (starsEl) {
+    for (let i = 0; i < 40; i++) {
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*100}%;animation-delay:${Math.random()*4}s;animation-duration:${Math.random()*3+2}s`;
+      starsEl.appendChild(s);
+    }
+  }
+
+  // Password toggle
+  const toggleBtn = document.getElementById('toggleLoginPassword');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', function() {
+      const inp = document.getElementById('login-password');
+      const icon = this.querySelector('i');
+      if (inp.type === 'password') {
+        inp.type = 'text';
+        icon.className = 'fas fa-eye-slash';
+      } else {
+        inp.type = 'password';
+        icon.className = 'fas fa-eye';
+      }
+    });
+  }
+
+  // Form submit — login via PHP API
+  document.getElementById('loginForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value.trim();
+
+    if (!email || !password) {
+      showError('⚠️ Harap masukkan Email dan Password terlebih dahulu!');
+      return;
+    }
+
+    const btn = document.getElementById('login-submit-btn');
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('api/login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        // Simpan sesi
+        localStorage.setItem('moonpaw_session', JSON.stringify(data.user));
+
+        // Redirect berdasarkan role
+        if (data.user.role === 'admin') {
+          window.location.href = 'admin/dashboard.html';
+        } else {
+          window.location.href = 'dashboard.html';
+        }
+      } else {
+        showError('❌ ' + data.message);
+        btn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Masuk ke Akun';
+        btn.disabled = false;
+      }
+    } catch (err) {
+      showError('❌ Gagal terhubung ke server. Pastikan Laragon sudah berjalan.');
+      btn.innerHTML = '<i class="fas fa-sign-in-alt"></i> Masuk ke Akun';
+      btn.disabled = false;
+    }
+  });
+});
+
+function handleGoogleLogin() {
+  showError('⚙️ Login Google memerlukan konfigurasi Firebase. Silakan gunakan login email.');
+}
+
+function showError(msg) {
+  let errEl = document.getElementById('login-error-msg');
+  if (!errEl) {
+    errEl = document.createElement('div');
+    errEl.id = 'login-error-msg';
+    errEl.style.cssText = 'margin-bottom:16px;padding:12px 16px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);border-radius:8px;font-size:0.85rem;color:#EF4444;text-align:center;';
+    const form = document.getElementById('loginForm');
+    form.insertBefore(errEl, form.firstChild);
+  }
+  errEl.textContent = msg;
+  errEl.style.display = 'block';
+  setTimeout(() => { errEl.style.display = 'none'; }, 5000);
+}
+</script>
+</body>
+</html>
