@@ -77,6 +77,12 @@ Import file tersebut menggunakan **phpMyAdmin** sebelum menjalankan aplikasi.
 
 ---
 
+## 🌐 Live Demo
+
+https://moonpaw.fwh.is
+
+---
+
 ## 📷 Preview
 
 ### Landing Page
@@ -112,10 +118,5 @@ Universitas Islam Kalimantan Muhammad Arsyad Al Banjari
 
 ---
 
-## 🌐 Live Demo
-
-https://moonpaw.fwh.is
-
----
 
 ⭐ **Final Project – Pemrograman Web 2**
